@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
 
+/* ==========================
+   || RESET & BASE STYLES ||
+   ========================== */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,7 @@
 body {
   color: #fff;
   font-family: "Oswald", sans-serif;
-  background: #000; /* Sugestão se estiver faltando */
+  background-color: #000;
 }
 
 h1 {
@@ -18,6 +21,9 @@ h1 {
   text-transform: uppercase;
 }
 
+/* ===================
+   || NAVIGATION ||
+   =================== */
 nav {
   width: 150px;
   position: absolute;
@@ -29,8 +35,8 @@ nav {
 }
 
 .slider-nav {
-  display: inline-block;
   width: 150px;
+  display: inline-block;
 }
 
 .slider-nav li {
@@ -40,9 +46,9 @@ nav {
   line-height: 32px;
   font-weight: 300;
   color: #555;
-  transition: all 0.5s;
-  position: relative;
   cursor: pointer;
+  position: relative;
+  transition: color 0.5s, padding-left 0.5s;
 }
 
 .slider-nav li:hover {
@@ -71,20 +77,23 @@ nav {
   transform: translateY(-50%);
 }
 
+/* ===================
+   || SLIDER AREA ||
+   =================== */
 .lambo {
   display: flex;
   align-items: center;
   background: radial-gradient(circle at 50% 52%, #222 0%, #000 100%);
   min-height: 100vh;
-  position: relative;
   padding: 40px 0 70px;
+  position: relative;
 }
 
 .banner {
   width: 100%;
-  position: relative;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .banner .slick-slide {
@@ -121,6 +130,9 @@ nav {
   font-size: 30px;
 }
 
+/* ===================
+   || TEXT & IMAGES ||
+   =================== */
 .banner-desc {
   position: relative;
   left: 18%;
@@ -148,17 +160,16 @@ nav {
 }
 
 .banner-inner img {
-  display: block;
   width: 80%;
   margin: 0 auto;
+  display: block;
   position: relative;
   z-index: 1;
 }
 
-/* ===================== */
-/* === MEDIA QUERIES === */
-/* ===================== */
-
+/* ==========================
+   || RESPONSIVE DESIGN ||
+   ========================== */
 @media (min-width: 992px) and (max-width: 1199px) {
   h1 {
     font-size: 80px;
@@ -211,13 +222,13 @@ nav {
     padding-left: 10px;
   }
 
-  .slick-current li {
-    padding-left: 20px;
-  }
-
   .slider-nav li {
     font-size: 16px;
     line-height: 26px;
+  }
+
+  .slick-current li {
+    padding-left: 20px;
   }
 
   .slick-current li::after {
@@ -233,12 +244,11 @@ nav {
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px),
-       (max-width: 575px) {
+@media (max-width: 767px) {
   .lambo {
     flex-direction: column;
     justify-content: center;
-    padding: 0 0 35px;
+    padding-bottom: 35px;
   }
 
   .banner {
@@ -270,7 +280,7 @@ nav {
 
   nav {
     position: static;
-    transform: translateY(0);
+    transform: none;
     width: 100%;
     padding-left: 0;
   }

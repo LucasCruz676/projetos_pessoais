@@ -1,20 +1,20 @@
 $(document).ready(function () {
-  const $sliderFor = $(".slider-for");
-  const $sliderNav = $(".slider-nav");
+  const $sliderMain = $(".slider-for");
+  const $sliderThumbs = $(".slider-nav");
 
-  // Slider principal
-  $sliderFor.slick({
+  // Slider principal (imagem grande)
+  $sliderMain.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    asNavFor: ".slider-nav",
+    asNavFor: ".slider-nav", // Conecta com o slider de miniaturas
   });
 
-  // Navegação lateral (miniaturas)
-  $sliderNav.slick({
+  // Slider de miniaturas (navegação lateral)
+  $sliderThumbs.slick({
     slidesToShow: 5,
     slidesToScroll: 1,
-    asNavFor: ".slider-for",
+    asNavFor: ".slider-for", // Conecta com o slider principal
     dots: false,
     arrows: false,
     focusOnSelect: true,
@@ -24,16 +24,16 @@ $(document).ready(function () {
         breakpoint: 768,
         settings: {
           arrows: true,
-          slidesToShow: 3, // Reduzido para melhor visibilidade em telas menores
+          slidesToShow: 3, // Ajuste para tablets
         },
       },
       {
         breakpoint: 480,
         settings: {
-          vertical: false,
-          slidesToShow: 2,
+          vertical: false, // Miniaturas horizontais no mobile
+          slidesToShow: 2, // Ajuste para smartphones
         },
-      }
+      },
     ],
   });
 });
