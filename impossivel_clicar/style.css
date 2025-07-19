@@ -1,0 +1,52 @@
+ body {
+  background: #2c2c2c;
+ }
+
+ button {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  height: 30px;
+  width: 45px;
+  
+ }
+
+ .box {
+  background: rgb(253, 126, 253);
+  border-radius: 15px;
+  height: 200px;
+  width: 250px;
+  position: relative;
+  top: 200px;
+  left: 550px;
+ }
+
+ .buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+ }
+
+ .botão {
+  background: #2c2c2c;
+  color: rgb(245, 245, 245);
+  border: none;
+  border-radius: 10px;
+  width: 87px;
+  height: 40px;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  top: 5px;
+ }
+
+ .botão:hover {
+  transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+    background: rgb(57, 219, 17);
+ }
+ 
+#nao {
+  position: relative;
+}
+

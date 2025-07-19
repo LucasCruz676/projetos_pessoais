@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_coração.css">
+    <title>Sim ou Não?</title>
+</head>
+
+<body>
+    <div id="container">
+        <center>
+            <h1>Cuzinho hj?</h1>
+            <div class="buttons">
+                <div id="nao"><button class="botão">Não</button></div>
+                <div id="sim"><button class="botão">Sim</button></div>
+            </div>
+    </div>
+    <script>
+        const botaoNao = document.getElementById('nao');
+
+        botaoNao.addEventListener('mouseenter', () => {
+            const container = document.querySelector('.buttons');
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+
+            const maxX = containerWidth - botaoNao.offsetWidth;
+            const maxY = containerHeight - botaoNao.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            botaoNao.style.left = `${randomX}px`;
+            botaoNao.style.top = `${randomY}px`;
+        });
+
+        document.getElementById('sim').addEventListener('click', () => {
+            alert('Vamos marcar BB!😈🔥');
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+    <script src="script_coração.js"></script>
+</body>
+
+</html>
