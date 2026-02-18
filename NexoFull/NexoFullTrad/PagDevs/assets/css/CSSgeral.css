@@ -1,0 +1,163 @@
+/* Reset e variáveis básicas */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all var(--transition-theme) !important;
+}
+
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --header-border: #ffffff;
+  --nav-bg: rgb(31, 31, 31);
+  --hamburguer-color: #ffffff;
+  --transition-theme: 0.3s ease;
+  --font-size-base: 1rem;
+  --font-size-scale: 1;
+  --header-height: 85px;
+  --scroll-btn-bg: rgba(0, 0, 0, 0.3);
+  --scroll-btn-color: #ffffff;
+  --scroll-btn-hover-bg: rgba(0, 0, 0, 0.5);
+  --border: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-border: #000000;
+  --nav-bg: rgb(240, 240, 240);
+  --hamburguer-color: #000000;
+  --scroll-btn-bg: rgba(255, 255, 255, 0.7);
+  --scroll-btn-color: #000000;
+  --scroll-btn-hover-bg: rgba(255, 255, 255, 0.9);
+  --border: #000000;
+}
+
+/* Corpo da página */
+body {
+  font-family: "Lexend", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: calc(var(--font-size-base) * var(--font-size-scale));
+  transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ajuste para fonte maior e menor */
+body.smaller-font {
+  --font-size-scale: 0.9;
+}
+body.larger-font {
+  --font-size-scale: 1.1;
+}
+
+/* Links */
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+  list-style: none;
+}
+a:hover,
+a:focus {
+  color: var(--text-color);
+  opacity: 0.8;
+  outline: none;
+}
+
+/* Fundo principal */
+.background {
+  margin-top: 30px;
+  text-align: center;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+.background img {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: var(--img-filter, none);
+  transition: filter 0.3s ease;
+}
+
+[data-theme="light"] .background img {
+  --img-filter: invert(1) brightness(0.9);
+}
+
+/* Títulos e textos variados */
+.text-white-invert,
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, td, th, label, input, textarea, select, button,
+div {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+/* Container principal */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 4rem 16px 2rem 16px; */
+  padding-top: 185px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* Título principal */
+.container h1#titulo {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  max-width: 600px;
+  margin: 20px auto 40px auto;
+  margin-top: 50px;
+  line-height: 1.2;
+}
+
+/* Responsividade para imagem do background e título */
+@media (max-width: 768px) {
+  .background img {
+    max-width: 100%;
+  }
+  .container h1#titulo {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    max-width: 90%;
+  }
+  .container{
+    padding-bottom: 0px;
+    padding-top: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .container h1#titulo {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+}
+
+/* Controle de foco */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+body,
+body *:not(header):not(.hamburguer):not(.hamburguer *):not(.navHeader),
+body *:not(header) *:not(.hamburguer):not(.hamburguer *) {
+  font-family: 'Lexend', sans-serif !important;
+}
+
+/* Override para header e hamburguer para manter padrão de fonte desejada */
+header,
+.hamburguer,
+.hamburguer span,
+.navHeader {
+  font-family: inherit; /* ou a fonte que o header usa */
+}

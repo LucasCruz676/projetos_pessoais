@@ -1,0 +1,86 @@
+/* Estilos do Footer */
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border: #ffffff;
+    --nav-bg: rgb(31, 31, 31);
+    --hamburguer-color: #ffffff;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border: #000000;
+    --nav-bg: rgb(240, 240, 240);
+    --hamburguer-color: #000000;
+}
+
+
+
+.footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 40px 16px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin-inline: auto;
+    border-bottom: solid 0.5px var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .footer-section:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .footer-section h4 {
+        border-bottom: solid 0.5px var(--border);
+        padding-bottom: 10px;
+    }
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-color);
+}

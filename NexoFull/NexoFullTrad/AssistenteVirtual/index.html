@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistente Virtual</title>
+  <script src="../shared/translations.js"></script>
+  <script src="../shared/languageManager.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/CSSgeral.css" />
+  <link rel="stylesheet" href="assets/css/headerCSS.css" />
+  <link rel="stylesheet" href="assets/css/assistentevirtual.css">
+  <link rel="stylesheet" href="assets/css/Botao.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="../Home/assets/css/Scrolling.css">
+  <link rel="stylesheet" href="assets/css/fix-overflow.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Instrument+Sans:ital,wght@0,400..700;1,400..700;1,400..700&family=Tilt+Warp&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Lexend:wght@100..900&family=Tilt+Warp&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+  <style>
+    /* ANIMAÇÕES DE SCROLL */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal-left.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal-right.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-reveal-scale {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal-scale.revealed {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* LOADING ANIMATION */
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* SMOOTH SCROLL */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+ <header class="header">
+        <nav class="navHeader">
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navHeader-list">
+                <li><a href="../Home/index.html">Página Inicial</a></li>
+                <li>
+                    <a href="../PagDevs/index.html">Página dos Desenvolvedores</a>
+                </li>
+                <li><a href="../Timeline/index.html">Linha do Tempo</a></li>
+                <li><a href="../RedesSociais/index.html">Redes Sociais</a></li>
+                <li>
+                    <a href="../AssistenteVirtual/index.html">Assistentes Virtuais</a>
+                </li>
+                <li>
+                    <a href="../ComputadorQuantico/index.html">Computadores Quânticos</a>
+                </li>
+                <li><a href="../AndroidVSIOS/index.html">Android e IOS</a></li>
+                <li><a href="../Sistemas operacionais/index.html">Sistemas Operacionais</a></li>
+                <li><a href="../LinguagensProgramação/index.html">Linguagens de Programação</a></li>
+                <li><a href="../Quiz/index.html">Quiz</a></li>
+
+                <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader2"
+                        alt="Logo NEXO" /></a>
+            </ul>
+            <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader img-invert"
+                    alt="Logo NEXO" /></a>
+
+            <div class="header-buttons">
+                <div class="nav-buttons">
+                    <button class="nav-btn">SOBRE-NÓS</button>
+                    <button class="nav-btn">CONTATO</button>
+                </div>
+                <div class="language-buttons">
+                    <button class="lang-btn">EN</button>
+                    <button class="lang-btn active">PT</button>
+                </div>
+            </div>
+
+            <div class="dark-mode-switch">
+                <input type="checkbox" class="material-symbols-rounded" id="theme-toggle" />
+                <label for="theme-toggle">Dark mode</label>
+            </div>
+        </nav>
+    </header>
+  <br>
+  <br>
+  <br>
+
+
+  <main>
+    <button class="scroll-down" id="scrollDownBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 16l-4-4 1.41-1.41L12 13.17l2.59-2.58L16 12z" />
+      </svg>
+  </button>
+
+  <button class="scroll-to-top" id="scrollTopBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 8l-4 4 1.41 1.41L12 10.83l2.59 2.58L16 12z" />
+      </svg>
+  </button>
+    <section class="primeiro">
+      <div class="primeiro-grid">
+        <div class="primeiro-conteudo">
+          <h1 class="titulo scroll-reveal">Assistentes Virtuais</h1>
+
+          <img src="assets/img/assistentevirtualimg.png" class="primeiro-img scroll-reveal-scale">
+
+          <p class="primeirotexto scroll-reveal">
+            A inteligência artificial é uma área da tecnologia que busca desenvolver sistemas capazes de realizar
+            tarefas de forma autônoma e inteligente. Presente em diferentes aspectos do nosso dia a dia, ela vem se
+            tornando essencial para tornar processos mais rápidos, precisos e personalizados.
+          </p>
+
+          <div class="saiba-mais scroll-reveal">
+            <a href="#exemplostitulo" class="btn-primary-custom">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="robo">
+          <div class="robo-bg">
+            <img src="assets/img/assistentevirtual.png" class="robo-img scroll-reveal-right">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="redes-conteudo">
+      <h2 class="exemplos-titulo scroll-reveal" id="exemplostitulo">O que são Assistentes Virtuais ?</h2>
+
+      <div class="historia-conteudo">
+        <p class="scroll-reveal">Assistentes virtuais são programas de software projetados para interagir com os usuários e ajudá-los a
+          realizar tarefas ou obter informações de forma prática e eficiente. Eles podem compreender comandos de voz ou
+          texto, fornecer respostas imediatas, automatizar processos e oferecer suporte personalizado, tornando a
+          experiência digital mais ágil e intuitiva.</p>
+      </div>
+    </div>
+
+    <section id="about" class="blocks">
+      <div class="grid-3">
+        <article class="glass-card scroll-reveal">
+          <h3 class="scroll-reveal"><i class="bi bi-stars"></i> Benefícios</h3>
+
+          <div class="flex-row-container">
+            <div class="flex-item scroll-reveal-left">
+              <div class="image-block">
+                <img src="assets/img/tempo.jpg" alt="">
+                <h1>Economia de tempo</h1>
+              </div>
+              <p>Podem automatizar tarefas repetitivas, como agendar compromissos, responder e-mails ou buscar
+                informações, permitindo que as pessoas foquem em atividades mais importantes. Além disso, oferecem
+                respostas imediatas, evitando a espera por atendimento humano.</p>
+            </div>
+
+            <div class="flex-item scroll-reveal">
+              <div class="image-block">
+                <img src="assets/img/disponibilidade.jpg" alt="">
+                <h1>Disponibilidade 24/7</h1>
+              </div>
+              <p>Estão sempre disponíveis, independentemente do horário ou dia da semana. Isso garante suporte contínuo
+                para dúvidas, solicitações ou problemas urgentes, algo que seria inviável apenas com atendentes humanos.
+              </p>
+            </div>
+
+            <div class="flex-item scroll-reveal-right">
+              <div class="image-block">
+                <img src="assets/img/intera.jpg" alt="">
+                <h1>Suporte personalizado e eficiente</h1>
+              </div>
+              <p>Utilizam dados e histórico de interações para oferecer respostas adaptadas ao perfil e às preferências
+                de cada usuário. Assim, o atendimento se torna mais rápido, assertivo e relevante, melhorando a
+                experiência e a satisfação do usuUário.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline-section">
+      <div class="container">
+        <h2 class="section-title scroll-reveal"><i class="bi bi-clock-history" aria-hidden="true"></i> Linha do Tempo</h2>
+
+        <div class="timeline-vertical" role="list">
+          <div class="t-row" role="listitem">
+            <div class="t-dot reveal scroll-reveal-left" aria-hidden="true"></div>
+            <div class="t-body">
+              <strong class="reveal scroll-reveal">1960s — ELIZA</strong>
+              <p class="scroll-reveal">Experimento inicial em chatbots.</p>
+              <p class="scroll-reveal">Primeiro chatbot, simulava conversa humana usando padrões de texto.</p>
+            </div>
+          </div>
+
+          <div class="t-row" role="listitem">
+            <div class="t-dot reveal scroll-reveal-left" aria-hidden="true"></div>
+            <div class="t-body">
+              <strong class="reveal scroll-reveal">2000s — Reconhecimento de voz</strong>
+              <p class="scroll-reveal">Integração com internet e dispositivos.</p>
+              <p class="scroll-reveal">Sistemas começaram a entender comandos de voz, permitindo interações mais naturais.</p>
+            </div>
+          </div>
+
+          <div class="t-row" role="listitem">
+            <div class="t-dot reveal scroll-reveal-left" aria-hidden="true"></div>
+            <div class="t-body">
+              <strong class="reveal scroll-reveal">2011 — Siri</strong>
+              <p class="scroll-reveal">Popularização em smartphones.</p>
+              <p class="scroll-reveal">Assistente pessoal em smartphones da apple, integração com apps e respostas contextuais.</p>
+            </div>
+          </div>
+
+          <div class="t-row" role="listitem">
+            <div class="t-dot reveal scroll-reveal-left" aria-hidden="true"></div>
+            <div class="t-body">
+              <strong class="reveal scroll-reveal">Hoje — Assistentes na nuvem</strong>
+              <p class="scroll-reveal">Modelos maiores e integração omnipresente.</p>
+              <p class="scroll-reveal">Alexa, Google Assistant e outros usam IA avançada, aprendizado contínuo e integração com múltiplos
+                dispositivos e serviços.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="detail" class="detail-section reveal">
+      <div class="detail-grid container">
+        <div class="glass-card scroll-reveal" id="detail-how">
+          <h3 class="scroll-reveal"><i class="bi bi-gear" aria-hidden="true"></i> Como funcionam (detalhado)</h3>
+          <ol>
+            <li class="scroll-reveal"><strong>Captura:</strong></li>
+            <p class="scroll-reveal">As assistentes virtuais recebem os comandos do usuário por voz (microfone) ou texto (teclado).</p>
+            <p class="scroll-reveal">Quando o comando é por voz, o áudio passa por um pré-processamento — remoção de ruídos, ajuste de volume e
+            conversão da fala em texto por meio de reconhecimento de fala (ASR – Automatic Speech Recognition).</p>
+            <br>
+            <li class="scroll-reveal"><strong>Processamento de Linguagem Natural (PLN):</strong></li>
+            <p class="scroll-reveal">Depois que o sistema tem o texto, entra o PLN (Processamento de Linguagem Natural).</p>
+            <li class="scroll-reveal">Nessa etapa, a assistente:</li>
+            <ul class="scroll-reveal">
+              <li>Identifica a intenção do usuário (ex: "tocar música", "marcar reunião").</li>
+              <li>Extrai entidades importantes (ex: nomes, datas, lugares, horários).</li>
+            </ul>
+            <p class="scroll-reveal">Isso permite que ela compreenda o contexto e o que o usuário realmente quer.</p>
+            <br>
+            <li class="scroll-reveal"><strong>Decisão:</strong></li>
+            <p class="scroll-reveal">Com base nas informações entendidas, o sistema decide qual ação tomar. Essa decisão pode ser guiada por:</p>
+            <ul class="scroll-reveal">
+              <li>Regras programadas (ex: se o comando for "hora", responder com o horário).</li>
+              <li>Modelos de IA e ferramentas de diálogo que avaliam o contexto e escolhem a melhor resposta.</li>
+            </ul>
+            <br>
+            <li class="scroll-reveal"><strong>Ação:</strong></li>
+            <p class="scroll-reveal">Por fim, a assistente executa a ação pedida:</p>
+            <ul class="scroll-reveal">
+              <li>Responde com voz sintetizada (TTS – Text to Speech).</li>
+              <li>Chama APIs (como previsão do tempo, agenda, músicas).</li>
+              <li>Ou controla dispositivos, como lâmpadas, TVs e celulares.</li>
+            </ul>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="glass-card scroll-reveal" id="detail-apps">
+        <h3 class="scroll-reveal"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Aplicações</h3>
+        <div class="apps-grid" role="list">
+          <div class="app-item scroll-reveal-left" role="listitem" data-example='
+            <h4>Google Assistente</h4>
+            <p>O Google Assistente ajuda a organizar tarefas, lembretes e controlar dispositivos inteligentes em sua casa. Ele entende comandos de voz e pode interagir com diversos serviços, como agenda, música e notícias.</p>
+            <img src="assets/img/google.jpeg" alt="Google Assistente">
+            <br>
+            <p>Facilita o gerenciamento da rotina diária, ajudando o usuário a manter foco e eficiência em múltiplas tarefas.</p>
+          '>
+            <i class="bi bi-bell-fill" aria-hidden="true"></i>
+            <span>Lembretes & Produtividade</span>
+          </div>
+
+          <div class="app-item scroll-reveal" role="listitem" data-example='
+            <h4>Amazon Alexa</h4>
+            <p>A Alexa controla dispositivos inteligentes em casa, reproduz músicas, responde perguntas e integra-se com diversos serviços e aplicativos, permitindo uma experiência de casa conectada.</p>
+            <img src="assets/img/alexa.jpg" alt="Amazon Alexa">
+            <br>
+            Centraliza o controle de dispositivos domésticos, criando ambientes automatizados e mais confortáveis.
+          '>
+            <i class="bi bi-house-fill" aria-hidden="true"></i>
+            <span>Casa Inteligente</span>
+          </div>
+
+          <div class="app-item scroll-reveal" role="listitem" data-example='
+            <h4>Duolingo Chatbot</h4>
+            <p>O Chatbot da Duolingo auxilia na aprendizagem de idiomas, permitindo praticar conversação e vocabulário de forma interativa. Ele simula diálogos reais para melhorar a fluência.</p>
+            <img src="assets/img/duolingo.webp" alt="Duolingo Chatbot">
+            <br>
+            Oferece aprendizado dinâmico e acessível, estimulando o estudo contínuo por meio de interações naturais.
+          '>
+            <i class="bi bi-book-fill" aria-hidden="true"></i>
+            <span>Educação</span>
+          </div>
+
+          <div class="app-item scroll-reveal-right" role="listitem" data-example='
+            <h4>VoiceOver / NVDA</h4>
+            <p>Assistentes de acessibilidade como VoiceOver (iOS) e NVDA (Windows) ajudam pessoas com deficiência visual a navegar em sistemas e aplicativos, lendo textos e descrevendo elementos na tela.</p>
+            <div class="fleximg">
+              <img src="assets/img/voiceover.jpg" alt="VoiceOver / NVDA">
+              <img src="assets/img/nvda.jpg" alt="VoiceOver / NVDA">
+            </div>
+            <br>
+            Promove inclusão digital ao permitir que pessoas com deficiência visual utilizem tecnologias de forma autônoma.
+          '>
+            <i class="bi bi-person-lines-fill" aria-hidden="true"></i>
+            <span>Acessibilidade</span>
+          </div>
+        </div>
+
+        <!-- Modal/Exemplo -->
+        <div id="app-example"></div>
+      </div>
+    </section>
+
+    <!-- Modal/Exemplo -->
+    <div id="app-example" style="margin-top:20px; padding:15px; background:rgba(255,255,255,0.1); border-radius:10px; display:none;"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section contact-info">
+        <h4>Nos Contate:</h4>
+        <p><i class="fas fa-phone"></i> 55 11 919444566</p>
+        <p><i class="fas fa-envelope"></i> Nexo1676@gmail.com.br</p>
+      </div>
+      <div class="footer-section insta-geral">
+        <h4>Instagram da empresa:</h4>
+        <p><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/nexo_1676">Nexo</p></a>
+      </div>
+      <div class="footer-section privacy-policy">
+        <a href="">
+          <h4>Políticas de privacidade</h4>
+        </a>
+        <a href="">
+          <p>Termos de condição</p>
+        </a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright 2025 Nexo</p>
+    </div>
+  </footer>
+
+  <script src="../Traducao/languageButtons.js"></script>
+  <script src="assets/js/AssistenteVirtual.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/menuBG.js"></script>
+  <script src="assets/js/darkMode.js"></script>
+  <script src="assets/js/headerScroll.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/modal.js"></script>
+  <script src="assets/js/timeline.js"></script>
+  <script src="assets/js/Botao.Js"></script>
+
+  <script>
+    // Script para animações de scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      function initScrollReveal() {
+        const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
+        
+        const elementInView = (el, dividend = 1) => {
+          const elementTop = el.getBoundingClientRect().top;
+          return (
+            elementTop <= 
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+          );
+        };
+
+        const displayScrollElement = (element) => {
+          element.classList.add('revealed');
+        };
+
+        const handleScrollAnimation = () => {
+          scrollElements.forEach((el) => {
+            if (elementInView(el, 1.2)) {
+              displayScrollElement(el);
+            }
+          });
+        };
+
+        // Initial check
+        handleScrollAnimation();
+        
+        // Listen for scroll events with throttle
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              handleScrollAnimation();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+
+      // Add loading animation to body
+      document.body.classList.add('fade-in');
+      
+      // Initialize scroll animations
+      initScrollReveal();
+    });
+  </script>
+</body>
+
+</html>

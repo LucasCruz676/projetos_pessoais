@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="assets/css/CSSgeral.css" />
+    <link rel="stylesheet" href="assets/css/headerCSS.css" />
+    <link rel="stylesheet" href="assets/css/Botao.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/Scrolling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/DarkMode.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Mono+One&family=Russo+One&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+      <style>
+    /* Remover sublinhado de todos os links */
+    a {
+      text-decoration: none !important;
+    }
+    
+    /* Estilo para os cards de membros */
+    .member {
+      text-decoration: none !important;
+      color: inherit;
+    }
+    
+    .member p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: var(--text-color);
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+    
+    /* Estilo específico para o texto do Lucas Cruz */
+    [data-member-id="lucas-cruz"] p {
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+  </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navHeader">
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navHeader-list">
+                <li><a href="../Home/index.html">Página Inicial</a></li>
+                <li>
+                    <a href="../PagDevs/index.html">Página dos Desenvolvedores</a>
+                </li>
+                <li><a href="../Timeline/index.html">Linha do Tempo</a></li>
+                <li><a href="../RedesSociais/index.html">Redes Sociais</a></li>
+                <li>
+                    <a href="../AssistenteVirtual/index.html">Assistentes Virtuais</a>
+                </li>
+                <li>
+                    <a href="../ComputadorQuantico/index.html">Computadores Quânticos</a>
+                </li>
+                <li><a href="../AndroidVSIOS/index.html">Android e IOS</a></li>
+                <li><a href="../Sistemas operacionais/index.html">Sistemas Operacionais</a></li>
+                <li><a href="../LinguagensProgramação/index.html">Linguagens de Programação</a></li>
+                <li><a href="../Quiz/index.html">Quiz</a></li>
+
+                <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader2"
+                        alt="Logo NEXO" /></a>
+            </ul>
+            <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader img-invert"
+                    alt="Logo NEXO" /></a>
+
+            <div class="header-buttons">
+                <div class="nav-buttons">
+                    <button class="nav-btn">SOBRE-NÓS</button>
+                    <button class="nav-btn">CONTATO</button>
+                </div>
+                <div class="language-buttons">
+                    <button class="lang-btn">EN</button>
+                    <button class="lang-btn active">PT</button>
+                </div>
+            </div>
+
+            <div class="dark-mode-switch">
+                <input type="checkbox" class="material-symbols-rounded" id="theme-toggle" />
+                <label for="theme-toggle">Dark mode</label>
+            </div>
+        </nav>
+    </header>
+
+    <button class="scroll-down" id="scrollDownBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 16l-4-4 1.41-1.41L12 13.17l2.59-2.58L16 12z" />
+        </svg>
+    </button>
+
+    <button class="scroll-to-top" id="scrollTopBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 8l-4 4 1.41 1.41L12 10.83l2.59 2.58L16 12z" />
+        </svg>
+    </button>
+
+    <div class="background">
+        <img src="assets/img/background.png" alt="" />
+    </div>
+    
+    <div class="ajustar">
+    <div class="container reveal">
+        <img src="./assets/img/Component 2.png" class="text-white-invert" id="titulo">
+        <p class="text-white-invert" id="subtitulo">
+            Entenda o caminho da tecnologia para imaginar o futuro.
+        </p>
+    </div>
+    </div>
+
+    <h2 class="text-white-invert reveal" id="titulo2">O que é a Nexo?</h2>
+    <div class="text-white-invert reveal" id="texto2">
+        <p class="textodotitulo reveal">
+            A Nexo é uma plataforma dedicada ao mundo da tecnologia e da computação, trazendo análises, curiosidades e
+            previsões
+            sobre as inovações que moldam o presente e apontam para o futuro. Nosso conteúdo explora desde os avanços
+            mais
+            recentes em sistemas computacionais até ideias futuristas que podem redefinir o mundo como conhecemos e
+            revelar
+            possibilidades jamais imaginadas.
+        </p>
+    </div>
+
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </button>
+        <button class="scroll-btn right">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+        </button>
+        <div class="scroll">
+            <div class="scroll-container">
+                <a href="../Timeline/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/timeline-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Linha do Tempo</h3>
+                            <p class="card-texto">Explore a evolução da tecnologia através dos tempos, desde os primeiros
+                                computadores até as inovações atuais que estão moldando o nosso futuro digital.</p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../LinguagensProgramação/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/programming-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Linguagens de Programação</h3>
+                            <p class="card-texto">Descubra as linguagens que estão transformando o mundo digital, desde as
+                                mais tradicionais até as mais inovadoras, e como elas impulsionam a inovação tecnológica.
+                            </p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../RedesSociais/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/social-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Redes Sociais</h3>
+                            <p class="card-texto">As redes sociais revolucionaram a forma como nos conectamos,
+                                compartilhamos e consumimos conteúdo. Explore como essas plataformas estão transformando a
+                                comunicação global e a interação social.</p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../AssistenteVirtual/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/assistant-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Assistentes Virtuais</h3>
+                            <p class="card-texto">Os assistentes virtuais estão se tornando cada vez mais sofisticados,
+                            <div class="popup-content">
+                              <p></p>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../ComputadorQuantico/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/quantum-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Computadores Quânticos</h3>
+                            <p class="card-texto">A computação quântica promete revolucionar a tecnologia com seu poder de
+                                processamento sem precedentes, abrindo portas para descobertas científicas e avanços
+                                tecnológicos inimagináveis.</p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../AndroidVSIOS/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/mobile-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Android & iOS</h3>
+                            <p class="card-texto">Android e iOS continuam a evoluir, oferecendo experiências únicas e
+                                personalizadas. Descubra como esses sistemas estão moldando o futuro dos dispositivos
+                                móveis.</p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="../Sistemas operacionais/index.html" class="card-link">
+                    <article class="card" style="background-image: url('assets/img/os-bg.jpg')">
+                        <div class="card-conteudo">
+                            <h3 class="card-titulo">Sistemas Operacionais</h3>
+                            <p class="card-texto">Os sistemas operacionais são a base da computação moderna. Conheça como
+                                eles evoluíram e como continuam a inovar para atender às demandas dos usuários e
+                                desenvolvedores.</p>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Navegação</h4>
+                <p><a href="../Home/index.html">Página Inicial</a></p>
+                <p><a href="../PagDevs/index.html">Desenvolvedores</a></p>
+                <p><a href="../Quiz/index.html">Quiz</a></p>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h4>Nos Contate:</h4>
+                <p><i class="fas fa-phone"></i> 55 11 919444566</p>
+                <p><i class="fas fa-envelope"></i> Nexo1676@gmail.com.br</p>
+            </div>
+
+            <div class="footer-section insta-geral">
+                <h4>Instagram:</h4>
+                <p>
+                    <a href="https://www.instagram.com/nexo_1676"><i class="fa-brands fa-instagram"></i> Nexo</a>
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Nexo</p>
+        </div>
+    </footer>
+    <script src="assets/js/menuBG.js"></script>
+    <script src="assets/js/headerScroll.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+    <script src="../Traducao/languageButtons.js"></script>
+    <script src="assets/js/Botao.Js"></script>
+    <script>
+        (() => {
+            const elements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        entry.target.classList.remove('is-hiding');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -45% 0px'
+            });
+
+            elements.forEach((el, i) => {
+                el.style.transitionDelay = `${(i % 8) * 80}ms`;
+                observer.observe(el);
+            });
+        })();
+    </script>
+    
+</body>
+
+</html>

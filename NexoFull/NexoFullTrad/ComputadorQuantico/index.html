@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computador Quântico</title>
+    <link rel="shortcut icon" href="./assets/img/computadorquantico.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/CSSgeral.css" />
+    <link rel="stylesheet" href="assets/css/headerCSS.css" />
+    <link rel="stylesheet" href="assets/css/computadorquantico.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/Botao.css">
+    <link rel="stylesheet" href="../Home/assets/css/Scrolling.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Instrument+Sans:ital,wght@0,400..700;1,400..700;1,400..700&Nfamily=Tilt+Warp&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"
+        href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Lexend:wght@100..900&family=Tilt+Warp&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" N
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Mono+One&family=Russo+One&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/modal.js"></script>
+    <script src="./assets/js/computadorquantico.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navHeader">
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navHeader-list">
+                <li><a href="../Home/index.html">Página Inicial</a></li>
+                <li>
+                    <a href="../PagDevs/index.html">Página dos Desenvolvedores</a>
+                </li>
+                <li><a href="../Timeline/index.html">Linha do Tempo</a></li>
+                <li><a href="../RedesSociais/index.html">Redes Sociais</a></li>
+                <li>
+                    <a href="../AssistenteVirtual/index.html">Assistentes Virtuais</a>
+                </li>
+                <li>
+                    <a href="../ComputadorQuantico/index.html">Computadores Quânticos</a>
+                </li>
+                <li><a href="../AndroidVSIOS/index.html">Android e IOS</a></li>
+                <li><a href="../Sistemas operacionais/index.html">Sistemas Operacionais</a></li>
+                <li><a href="../LinguagensProgramação/index.html">Linguagens de Programação</a></li>
+                <li><a href="../Quiz/index.html">Quiz</a></li>
+
+                <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader2 img-invert"
+                        alt="Logo NEXO" /></a>
+            </ul>
+            <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader img-invert"
+                    alt="Logo NEXO" /></a>
+
+            <div class="header-buttons">
+                <div class="nav-buttons">
+                    <button class="nav-btn">SOBRE-NÓS</button>
+                    <button class="nav-btn">CONTATO</button>
+                </div>
+                <div class="language-buttons">
+                    <button class="lang-btn">EN</button>
+                    <button class="lang-btn active">PT</button>
+                </div>
+            </div>
+
+            <div class="dark-mode-switch">
+                <input type="checkbox" class="material-symbols-rounded" id="theme-toggle" />
+                <label for="theme-toggle">Dark mode</label>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+
+
+    <main class="">
+        <button class="scroll-down" id="scrollDownBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 16l-4-4 1.41-1.41L12 13.17l2.59-2.58L16 12z" />
+            </svg>
+        </button>
+    
+        <button class="scroll-to-top" id="scrollTopBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 8l-4 4 1.41 1.41L12 10.83l2.59 2.58L16 12z" />
+            </svg>
+        </button>
+        <div class="backgroundquantico">
+            <div class="titulo ">COMPUTADORES QUÂNTICOS</div>
+            <section class="containerquantico">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6" id="borda">
+                        <h1 class="Topicos ">O que são os computadores quânticos ?</h1>
+                        <p class="introdução ">
+                            Computadores quânticos são dispositivos de processamento de informação que
+                            usam leis da mecânica quântica, especialmente superposição, entrelaçamento e interferência
+                            para representar e manipular dados de forma fundamentalmente diferente dos computadores
+                            clássicos
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 text-center">
+                        <img src="assets/img/computadorquantico.jpg" id="imgcon" class="img-fluid" />
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <hr>
+        <div class="fundamentos">Fundamentos da Mecânica Quântica (1900-1930)</div>
+
+        <div class="container">
+            <div class="box1" onclick="abrirModal('modal1')">
+                <h2>Superposição</h2>
+                <p>Um sistema quântico pode existir simultaneamente em múltiplos estados possíveis até ser medido.
+                    Por
+                    exemplo, um elétron pode estar em diferentes posições ou spin ao mesmo tempo, e só “escolhe” um
+                    estado definido quando observamos.</p>
+                <p><strong>Clique para saber mais</strong></p>
+            </div>
+
+            <div class="box2" onclick="abrirModal('modal2')">
+                <h2>Entrelaçamento</h2>
+                <p>Partículas quânticas podem se correlacionar de forma que o estado de uma depende instantaneamente
+                    do
+                    estado da outra, mesmo que estejam separadas por grandes distâncias. Isso cria uma conexão que
+                    não
+                    existe na física clássica.</p>
+                <p><strong>Clique para saber mais</strong></p>
+            </div>
+
+            <div class="box3" onclick="abrirModal('modal3')">
+                <h2>Interferência</h2>
+                <p>Como ondas, os estados quânticos podem se sobrepor e combinar, reforçando ou cancelando
+                    probabilidades de certos resultados. Um exemplo clássico é o experimento da dupla fenda, onde
+                    partículas mostram padrões de interferência como ondas.</p>
+                <p><strong>Clique para saber mais</strong></p>
+            </div>
+        </div>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modal1')">&times;</span>
+                <img src="./assets/img/erwinheisenberg.jpg">
+                <h2>Superposição</h2>
+                <p>Erwin Schrödinger: Criou a equação de Schrödinger e o experimento do Gato de Schrödinger,
+                    ilustrando
+                    que sistemas quânticos podem existir em múltiplos estados simultaneamente.</p>
+
+                <p> Werner Heisenberg: Criou a mecânica matricial e o Princípio da Incerteza, reforçando a ideia de
+                    estados quânticos em superposição.</p>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modal2')">&times;</span>
+                <img src="./assets/img/albert.jpg">
+                <h2>Entrelaçamento</h2>
+                <p>Albert Einstein, Boris Podolsky e Nathan Rosen (EPR): Propuseram o paradoxo EPR, mostrando que
+                    partículas podem estar correlacionadas à distância (“ação fantasmagórica”). </p>
+
+                <p>Logo John Bell criou os Teoremas de Bell, permitindo testar experimentalmente o entrelaçamento.
+                </p>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modal3')">&times;</span>
+                <img src="./assets/img/paul.png">
+                <h2>Interferência</h2>
+                <p>Thomas Young: Demonstrou a interferência de ondas com luz no experimento da dupla fenda.</p>
+
+                <p> Niels Bohr: Interpretou a interferência em termos de probabilidades quânticas (interpretação de
+                    Copenhague).</p>
+
+                <p>Paul Dirac: Formalizou a função de onda e explicou a interferência como resultado da sobreposição
+                    de
+                    estados quânticos.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="ideiaseavanços">Primeiras Ideias da Computação Quântica</div>
+
+        <div class="timeline">
+            <div class="timeline-item left reveal">
+                <h5>1959 – Richard Feynman</h5>
+                <p>Sugere que fenômenos quânticos só podem ser simulados com sistemas quânticos</p>
+            </div>
+
+            <div class="timeline-item right reveal">
+                <h5>1970s – Paul Benioff</h5>
+                <p>Formula um modelo teórico de computador quântico reversível</p>
+            </div>
+
+            <div class="timeline-item left reveal">
+                <h5>1981 – Conferência do MIT</h5>
+                <p>Feynman apresenta a ideia de um computador quântico universal</p>
+            </div>
+        </div>
+        <hr>
+        <div class="ideiaseavanços">Avanços Teóricos e Algoritmos Fundamentais</div>
+
+        <div class="timeline">
+            <div class="timeline-item right reveal">
+                <h5>1985 – David Deutsch propõe o primeiro modelo universal de computador quântico</h5>
+                <p>Deutsch introduziu o conceito de porta lógica quântica universal, mostrando que computadores
+                    quânticos poderiam realizar qualquer operação computacional clássica e mais, formalizando a base
+                    teórica da computação quântica moderna.</p>
+            </div>
+
+            <div class="timeline-item left reveal">
+                <h5>1994 – Peter Shor cria o Algoritmo de Shor</h5>
+                <p>Shor desenvolveu um algoritmo capaz de fatorar grandes números exponencialmente mais rápido que
+                    os
+                    métodos clássicos. Este avanço mostrou que computadores quânticos poderiam quebrar criptografia
+                    RSA,
+                    evidenciando seu potencial revolucionário na segurança digital.</p>
+            </div>
+
+            <div class="timeline-item right reveal">
+                <h5>Lov Grover desenvolve o Algoritmo de Grover</h5>
+                <p>Grover propôs um algoritmo para buscar informações em bases de dados não ordenadas com
+                    complexidade
+                    quadrática menor que a clássica. Apesar de simples, o algoritmo demonstrou como algoritmos
+                    quânticos
+                    podem acelerar tarefas específicas significativamente.</p>
+            </div>
+        </div>
+        <hr>
+        <section class="computadores-quanticos">
+            <h2 class="section-titulo">Primeiros Experimentos</h2>
+            <div class="grid-container">
+                <div class="grid-item" onclick="toggleInfo(this)">
+                    <h3>Universidade de Massachusetts (1998)</h3>
+                    <p>Computador quântico de 2 qubits em NMR, rodando o algoritmo de Deutsch–Jozsa.
+                    </p>
+                    <div class="info-adicional">
+                        <p>Pesquisadores da Universidade de Massachusetts implementaram 2 qubits NMR em moléculas de
+                            cloroformo, manipulando spins nucleares para rodar o algoritmo Deutsch–Jozsa completo. O
+                            experimento confirmou que qubits físicos podem ser controlados para resolver problemas
+                            computacionais, consolidando a viabilidade prática da computação quântica.</p>
+
+                    </div>
+                    <div class="ver-mais">
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="toggleInfo(this)">
+                    <h3>IBM & Universidade de Stanford (1998)</h3>
+                    <p>Primeiro computador quântico experimental com 2 qubits usando
+                        NMR.</p>
+
+                    <div class="info-adicional">
+                        <p>Pesquisadores da IBM e Stanford criaram um computador quântico de 2 qubits usando NMR em
+                            moléculas líquidas. Manipularam os spins nucleares com pulsos de rádio para realizar portas
+                            lógicas quânticas, demonstrando superposição e interferência. Executaram uma versão
+                            simplificada do algoritmo Deutsch–Jozsa, mostrando a vantagem quântica sobre métodos
+                            clássicos.</p>
+                    </div>
+
+                    <div class="ver-mais">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="containerquantico">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <h1 class="Topicos ">2001 – IBM - Primeiro algoritmo "realmente executado"</h1>
+                    <p class="introdução ">
+                        O IBM 2001 foi um marco na computação quântica, consistindo em um computador de 7 qubits
+                        usando
+                        ressonância magnética nuclear (NMR). Ele executou com sucesso o algoritmo de Shor, capaz de
+                        fatorar números inteiros mais rapidamente que computadores clássicos, demonstrando na
+                        prática
+                        conceitos fundamentais da computação quântica, como superposição e interferência
+                    </p>
+                    <p class="introdução">
+                        Apesar de pequeno e limitado a um ambiente controlado, foi o primeiro experimento a rodar um
+                        algoritmo quântico completo, provando que cálculos complexos quânticos eram possíveis e
+                        abrindo
+                        caminho para protótipos maiores e comerciais.
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-center" id="ibm">
+                    <img src="assets/img/2001ibm.png" id="icon" class="img-fluid" />
+                </div>
+            </div>
+
+        </section>
+        <hr>
+        <section class="containerquantico2">
+            <div class="row align-items-center mb-4" id="coluna2">
+                <div class="col-md-6 text-center">
+                    <img src="assets/img/dwave.webp" id="dwaveimg" class="img-fluid" />
+                </div>
+                <div class="col-md-6" id="containerquanticocol">
+                    <h1 class="Topicos">D-Wave One - 2011</h1>
+                    <p class="introdução">
+                        O D-Wave One, lançado em 2011 pela empresa canadense D-Wave Systems, foi o primeiro computador
+                        quântico comercial do mundo. Utilizando 128 qubits supercondutores e operando em temperaturas
+                        criogênicas, ele foi projetado para resolver problemas de otimização e pesquisa de soluções
+                        complexas com maior eficiência que computadores clássicos.
+                    </p>
+                    <p class="introdução">
+                        Seu desenvolvimento começou com protótipos de 16 e 28 qubits, evoluindo até o modelo estável de
+                        128 qubits. O primeiro exemplar foi instalado no Instituto de Tecnologia da Lockheed Martin, e o
+                        sistema exigia isolamento contra vibrações, radiação e campos magnéticos.
+                    </p>
+                    <p class="introdução">
+                        Empresas e instituições como NASA e Google também adquiriram o D-Wave One para pesquisa e
+                        aplicações práticas, marcando a transição da computação quântica do ambiente experimental para o
+                        comercial.
+                    </p>
+
+                    <div class="grid-item" onclick="toggleInfo(this)">
+                        <h3>Processador Quântico do D-Wave One</h3>
+
+                        <div class="info-adicional">
+                            <img src="./assets/img/pquantico.jpg" class="processador">
+                            <p>O processador quântico do D-Wave One, chamado Rainier possui 128 qubits
+                                supercondutores.
+                            </p>
+                            <p>O chip em si tem apenas alguns milímetros, mas o equipamento completo ocupa quase o
+                                tamanho de um guarda-roupa.</p>
+                        </div>
+                        <div class="ver-mais"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="grid-quantico">
+            <h2 class="titulo-quantico">Computadores Quânticos da Atualidade</h2>
+
+            <div class="cards-quantico">
+
+                <div class="card-quantico">
+                    <img src="assets/img/ibmcondor.webp" alt="IBM Condor">
+                    <h3>IBM Condor</h3>
+                    <p><strong>Qubits:</strong> 1.121</p>
+                    <p><strong>Lançamento:</strong> 2023</p>
+                    <p>Lançado em 2023, o IBM Condor é o primeiro processador quântico com mais de 1.000 qubits,
+                        marcando um grande passo na escalabilidade quântica. Ele é acessível via nuvem e integra o
+                        sistema IBM Quantum System Two, combinando computação clássica e quântica.</p>
+                </div>
+
+                <div class="card-quantico">
+                    <img src="assets/img/googlewillow.webp" alt="Google Willow">
+                    <h3>Google Willow</h3>
+                    <p><strong>Qubits:</strong> 105</p>
+                    <p><strong>Lançamento:</strong> 2024</p>
+                    <p>O Google Willow, sucessor do Sycamore, possui 105 qubits e foi desenvolvido com foco em
+                        correção
+                        de erros e estabilidade quântica. Faz parte da estratégia do Google para alcançar computação
+                        quântica tolerante a falhas.</p>
+                </div>
+
+                <div class="card-quantico">
+                    <img src="assets/img/dwaveadvantage2.jpeg" alt="D-Wave Advantage2">
+                    <h3>D-Wave Advantage2</h3>
+                    <p><strong>Qubits:</strong> >5.000</p>
+                    <p><strong>Lançamento:</strong> 2024</p>
+                    <p>O D-Wave Advantage2 é o sistema de última geração da D-Wave, com mais de 5.000 qubits.
+                        Projetado
+                        para resolver problemas de otimização em grande escala, é utilizado em logística, energia e
+                        finanças.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h4>Nos Contate:</h4>
+                <p><i class="fas fa-phone"></i> 55 11 919444566</p>
+                <p><i class="fas fa-envelope"></i> Nexo1676@gmail.com.br</p>
+            </div>
+            <div class="footer-section insta-geral">
+                <h4>Instagram da empresa:</h4>
+                <p><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/nexo_1676">Nexo</p></a>
+            </div>
+            <div class="footer-section privacy-policy">
+                <a href="">
+                    <h4>Políticas de privacidade</h4>
+                </a>
+                <a href="">
+                    <p>Termos de condição</p>
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright 2025 Nexo</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/menuBG.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+    <script src="assets/js/headerScroll.js"></script>
+    <script src="../Traducao/languageButtons.js"></script>
+    <script src="assets/js/Botao.Js"></script>
+    <script>
+        (() => {
+            const elements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        entry.target.classList.remove('is-hiding');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -15% 0px'
+            });
+
+            elements.forEach((el, i) => {
+                el.style.transitionDelay = `${(i % 8) * 50}ms`; // Reduzido de 100ms para 50ms
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+
+</html>

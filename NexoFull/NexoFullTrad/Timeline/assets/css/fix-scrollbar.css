@@ -1,0 +1,32 @@
+/* Remover barra de rolagem branca */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Garantir que o conteúdo não ultrapasse a largura da tela */
+.timeline-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Remover margens e paddings extras */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Corrigir largura do conteúdo principal */
+main {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Garantir que imagens não ultrapassem a largura */
+img {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,118 @@
+.footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 60px 0 20px 0; /* padding original */
+    margin: 0 auto;
+    border-top: solid 1px white;
+    width: 100%;
+}
+[data-theme="light"] .footer{
+    border-top: solid 1px black;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* ALTERAÇÃO MÍNIMA AQUI: Centraliza e espaça as colunas de forma mais uniforme */
+    justify-content: space-evenly; 
+    max-width: 1280px;
+    margin-inline: auto; /* Garante que o container esteja centralizado na página */
+    padding: 0 16px 30px; 
+    /* border-bottom: solid 1px var(--footer-text-color); */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    /* Adicionado para garantir o alinhamento de itens individuais */
+    text-align: left; 
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-section p, .footer-section a {
+    font-size: 0.95em;
+    line-height: 1.8;
+    margin: 0;
+    color: var(--footer-text-color);
+    transition: color 0.3s ease;
+}
+
+.footer-section a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-section a:hover {
+    color: var(--neon-color);
+    text-decoration: underline;
+}
+
+.insta-geral a {
+    font-weight: bold;
+}
+
+.fa-phone, .fa-envelope, .fa-instagram {
+    font-size: 1.1em;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--footer-text-color);
+    padding: 20px 16px 0;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 850px) {
+    .footer {
+        padding: 35px 0 15px 0; 
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 16px 20px; 
+        /* Alinhamento forçado ao centro no mobile */
+        justify-content: center;
+    }
+
+    .footer-section {
+        min-width: 100%; 
+        padding-right: 0;
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+    
+    .footer-section p, .footer-section a {
+        text-align: center;
+        /* Garante que os itens de contato/social sejam centralizados */
+        justify-content: center; 
+        line-height: 1.5; 
+        margin-bottom: 3px;
+    }
+    
+    .footer-section.contact-info p, 
+    .footer-section.insta-geral a {
+        display: flex; /* Mudei para flex para centralizar ícones */
+        justify-content: center;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 8px; 
+    }
+}

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar Implementation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 16px 24px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        #searchInput:focus {
+            border-color: #3498db;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        #searchInput::placeholder {
+            color: #95a5a6;
+        }
+
+        #searchButton {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #searchButton:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        #searchButton:active {
+            transform: translateY(0);
+        }
+
+        .search-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 10px 20px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #2c3e50;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: #d5dbdb;
+        }
+
+        .control-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .results-container {
+            margin-top: 30px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        #resultsCount {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        #resultsList {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .result-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .result-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .result-title {
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .result-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .search-stats {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 14px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #95a5a6;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px;
+            display: none;
+        }
+
+        .clear-search:hover {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            .search-section {
+                padding: 20px;
+            }
+            
+            .search-wrapper {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .control-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-section">
+            <h1>Smart Search Bar</h1>
+            <p class="subtitle">Search through our collection of items with advanced filtering</p>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search for items..." 
+                        autocomplete="off"
+                    >
+                    <button id="searchButton">Search</button>
+                </div>
+                <button class="clear-search" id="clearSearch">×</button>
+                
+                <div class="search-controls">
+                    <button class="control-btn active" data-filter="all">All Items</button>
+                    <button class="control-btn" data-filter="featured">Featured</button>
+                    <button class="control-btn" data-filter="recent">Recent</button>
+                    <button class="control-btn" data-filter="popular">Popular</button>
+                </div>
+            </div>
+            
+            <div class="results-container">
+                <div class="results-header">
+                    <h2>Search Results</h2>
+                    <div id="resultsCount">0 items found</div>
+                </div>
+                <ul id="resultsList"></ul>
+                <div class="search-stats">
+                    <span id="searchStats">Start typing to see results</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data - in a real application, this would come from an API
+        const items = [
+            {
+                id: 1,
+                title: "JavaScript Fundamentals",
+                description: "Learn the basics of JavaScript programming language",
+                category: "featured",
+                tags: ["programming", "web", "javascript"]
+            },
+            {
+                id: 2,
+                title: "Advanced CSS Techniques",
+                description: "Master modern CSS with flexbox, grid, and animations",
+                category: "popular",
+                tags: ["css", "web", "design"]
+            },
+            {
+                id: 3,
+                title: "React Development Guide",
+                description: "Complete guide to building applications with React",
+                category: "featured",
+                tags: ["react", "javascript", "frontend"]
+            },
+            {
+                id: 4,
+                title: "Node.js Backend Development",
+                description: "Build scalable server applications with Node.js",
+                category: "recent",
+                tags: ["node", "backend", "javascript"]
+            },
+            {
+                id: 5,
+                title: "Python for Data Science",
+                description: "Use Python for data analysis and machine learning",
+                category: "popular",
+                tags: ["python", "data", "ai"]
+            },
+            {
+                id: 6,
+                title: "Web Performance Optimization",
+                description: "Techniques to make your website load faster",
+                category: "recent",
+                tags: ["performance", "web", "optimization"]
+            },
+            {
+                id: 7,
+                title: "Mobile App Development",
+                description: "Create cross-platform mobile applications",
+                category: "featured",
+                tags: ["mobile", "app", "development"]
+            },
+            {
+                id: 8,
+                title: "Database Design Principles",
+                description: "Learn how to design efficient database structures",
+                category: "popular",
+                tags: ["database", "sql", "design"]
+            },
+            {
+                id: 9,
+                title: "DevOps Fundamentals",
+                description: "Introduction to DevOps practices and tools",
+                category: "recent",
+                tags: ["devops", "cloud", "deployment"]
+            },
+            {
+                id: 10,
+                title: "UI/UX Design Principles",
+                description: "Create beautiful and user-friendly interfaces",
+                category: "featured",
+                tags: ["design", "ui", "ux"]
+            }
+        ];
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const clearSearch = document.getElementById('clearSearch');
+        const resultsList = document.getElementById('resultsList');
+        const resultsCount = document.getElementById('resultsCount');
+        const searchStats = document.getElementById('searchStats');
+        const controlButtons = document.querySelectorAll('.control-btn');
+
+        // Search state
+        let currentFilter = 'all';
+        let searchDebounceTimer;
+        let lastSearchTerm = '';
+        let searchStartTime;
+
+        // Initialize
+        function init() {
+            displayAllItems();
+            setupEventListeners();
+            updateSearchStats();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search input events
+            searchInput.addEventListener('input', handleSearchInput);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Search button
+            searchButton.addEventListener('click', performSearch);
+
+            // Clear search button
+            clearSearch.addEventListener('click', clearSearchInput);
+
+            // Filter buttons
+            controlButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    controlButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Update filter and perform search
+                    currentFilter = button.dataset.filter;
+                    performSearch();
+                });
+            });
+        }
+
+        // Handle search input with debouncing
+        function handleSearchInput(e) {
+            const searchTerm = e.target.value.trim();
+            
+            // Show/hide clear button
+            clearSearch.style.display = searchTerm ? 'block' : 'none';
+            
+            // Debounce search to avoid too many searches
+            clearTimeout(searchDebounceTimer);
+            
+            if (searchTerm !== lastSearchTerm) {
+                searchDebounceTimer = setTimeout(() => {
+                    performSearch();
+                }, 300);
+            }
+        }
+
+        // Perform the search
+        function performSearch() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            lastSearchTerm = searchTerm;
+            searchStartTime = Date.now();
+
+            // Filter items based on search term and current filter
+            let filteredItems = items;
+
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filteredItems = filteredItems.filter(item => 
+                    item.category === currentFilter
+                );
+            }
+
+            // Apply search term filter
+            if (searchTerm) {
+                filteredItems = filteredItems.filter(item => {
+                    const titleMatch = item.title.toLowerCase().includes(searchTerm);
+                    const descMatch = item.description.toLowerCase().includes(searchTerm);
+                    const tagsMatch = item.tags.some(tag => 
+                        tag.toLowerCase().includes(searchTerm)
+                    );
+                    return titleMatch || descMatch || tagsMatch;
+                });
+            }
+
+            // Display results
+            displayResults(filteredItems, searchTerm);
+        }
+
+        // Display search results
+        function displayResults(itemsToDisplay, searchTerm = '') {
+            resultsList.innerHTML = '';
+
+            if (itemsToDisplay.length === 0) {
+                resultsList.innerHTML = `
+                    <div class="no-results">
+                        <h3>No results found</h3>
+                        <p>Try a different search term or filter</p>
+                    </div>
+                `;
+                resultsCount.textContent = '0 items found';
+                updateSearchStats();
+                return;
+            }
+
+            itemsToDisplay.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'result-item';
+                
+                // Highlight search term in results
+                let highlightedTitle = highlightText(item.title, searchTerm);
+                let highlightedDesc = highlightText(item.description, searchTerm);
+                
+                li.innerHTML = `
+                    <div class="result-title">${highlightedTitle}</div>
+                    <div class="result-description">${highlightedDesc}</div>
+                    <div style="margin-top: 8px;">
+                        ${item.tags.map(tag => 
+                            `<span style="
+                                display: inline-block;
+                                background: #ecf0f1;
+                                padding: 4px 8px;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                margin-right: 5px;
+                                color: #2c3e50;
+                            ">${tag}</span>`
+                        ).join('')}
+                    </div>
+                `;
+                
+                li.addEventListener('click', () => {
+                    alert(`You clicked on: ${item.title}`);
+                });
+                
+                resultsList.appendChild(li);
+            });
+
+            resultsCount.textContent = `${itemsToDisplay.length} item${itemsToDisplay.length !== 1 ? 's' : ''} found`;
+            updateSearchStats();
+        }
+
+        // Highlight matching text in results
+        function highlightText(text, searchTerm) {
+            if (!searchTerm) return text;
+            
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        // Display all items initially
+        function displayAllItems() {
+            resultsList.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'result-item';
+                li.innerHTML = `
+                    <div class="result-title">${item.title}</div>
+                    <div class="result-description">${item.description}</div>
+                    <div style="margin-top: 8px;">
+                        ${item.tags.map(tag => 
+                            `<span style="
+                                display: inline-block;
+                                background: #ecf0f1;
+                                padding: 4px 8px;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                margin-right: 5px;
+                                color: #2c3e50;
+                            ">${tag}</span>`
+                        ).join('')}
+                    </div>
+                `;
+                
+                li.addEventListener('click', () => {
+                    alert(`You clicked on: ${item.title}`);
+                });
+                
+                resultsList.appendChild(li);
+            });
+            resultsCount.textContent = `${items.length} items available`;
+        }
+
+        // Clear search input
+        function clearSearchInput() {
+            searchInput.value = '';
+            clearSearch.style.display = 'none';
+            displayAllItems();
+            updateSearchStats();
+        }
+
+        // Update search statistics
+        function updateSearchStats() {
+            const searchTerm = searchInput.value.trim();
+            let statsText = '';
+            
+            if (searchTerm) {
+                const searchTime = Date.now() - searchStartTime;
+                statsText = `Searched for "${searchTerm}" in ${searchTime}ms`;
+            } else {
+                statsText = 'Start typing to search, or use filters above';
+            }
+            
+            searchStats.textContent = statsText;
+        }
+
+        // Initialize the search bar
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Expose functions to global scope for debugging (optional)
+        window.searchBar = {
+            performSearch,
+            clearSearch: clearSearchInput,
+            setFilter: (filter) => {
+                currentFilter = filter;
+                controlButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.filter === filter);
+                });
+                performSearch();
+            }
+        };
+    </script>
+</body>
+</html>

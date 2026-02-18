@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome</title>
+    <link rel="stylesheet" href="css-script/style_carta.css">
+    <link rel="stylesheet" href="css-script/style_coração.css">
+    <link rel="stylesheet" href="css-script/style_geral.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>nome</strong>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, aliquid deleniti
+                            voluptates ut dolor vero nulla dicta, quae quidem ratione eligendi nesciunt tempora rerum
+                            nihil harum esse, perspiciatis odio maxime.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <div class="contador-container">
+        <p class="contador-texto">
+            A gente se conhece a
+            <span id="dias"></span>d
+            <span id="horas"></span>h
+            <span id="minutos"></span>m
+            <span id="segundos"></span>s 💕
+        </p>
+    </div>
+
+
+
+    <div class="polaroid" id="polaroidBox">
+        <div class="photo-area">
+            <div class="cover-black"></div>
+
+            <!-- Coloque sua foto aqui -->
+            <img src="img/" alt="foto">
+        </div>
+        <div class="caption">Meu Amor ❤️</div>
+    </div>
+
+    <script>
+        // revelar polaroid
+        const box = document.getElementById('polaroidBox');
+        box.addEventListener('click', () => {
+            box.classList.toggle('revealed');
+        });
+    </script>
+
+
+
+    <script src="css-script/script_coração.js"></script>
+</body>
+
+</html>

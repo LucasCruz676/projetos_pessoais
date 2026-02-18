@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --header-border: #ffffff;
+    --nav-bg: rgb(31, 31, 31);
+    --hamburguer-color: #ffffff;
+    --scroll-btn-bg: rgba(0, 0, 0, 0.3);
+    --scroll-btn-color: #ffffff;
+    --scroll-btn-hover-bg: rgba(0, 0, 0, 0.5);
+    --transition-theme: 0.3s ease;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-border: #000000;
+    --nav-bg: rgb(240, 240, 240);
+    --hamburguer-color: #000000;
+    --scroll-btn-bg: rgba(255, 255, 255, 0.7);
+    --scroll-btn-color: #000000;
+    --scroll-btn-hover-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* APENAS AS TRANSIÇÕES SINCRONIZADAS - MANTENDO O RESTO ORIGINAL */
+body,
+.header,
+.navHeader-list,
+.navHeader-list a,
+.hamburguer,
+.hamburguer::before,
+.hamburguer::after,
+.text-white-invert,
+.img-invert,
+.scroll-btn,
+.card,
+.card::before,
+#titulo,
+#subtitulo,
+#titulo2,
+#texto2,
+#O,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+.theme-switch-wrapper,
+.theme-switch,
+.slider {
+    transition: all var(--transition-theme) !important;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "Lexend", sans-serif;
+    min-height: 100vh;
+}
+
+.fundo-img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+    transform: scale(3.2);
+}
+
+
+.text-white-invert {
+    color: var(--text-color);
+}
+
+
+.container-1 {
+    max-width: 1200px;
+    margin: 0;
+    padding: 14rem;
+    padding-top: 300px;
+}
+
+
+
+#titulo {
+    font-size: 100px;
+    margin-top: -200px;
+}
+
+/* linguagens */
+
+.secao-linguagens {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px 16px;
+}
+
+.title-3 {
+    display: flex;
+    position: relative;
+    gap: 1px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.system {
+    color: #0078d7;
+}
+
+.ponto {
+    color: var(--text-color);
+}
+
+.out {
+    color: #7dbff5;
+}
+
+.println {
+    color: #32a02e;
+}
+
+.subtitle {
+    color: #42cf3d;
+    margin-bottom: 30px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0;
+    padding: 0;
+    display: block;
+
+}
+
+.grade-linguagens {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+.button-ling {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: var(--nav-bg);
+    border: 1px solid #581066;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.button-ling:hover {
+    transform: scale(1.02);
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.modal-inner {
+    background-color: var(--nav-bg);
+    border-radius: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    text-align: center;
+    width: 380px;
+}
+
+.button-ling i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.button-ling p {
+    font-size: 1rem;
+    color: var(--text-color);
+    position: relative;
+    left: 1px;
+    bottom: -5px;
+}
+
+.modal-inner h4 {
+    margin: 0;
+}
+
+.modal-inner i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.modal-inner p {
+    line-height: 24px;
+    margin: 10px 0;
+}
+
+.modal button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #581066;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background: #3a0a44;
+}
+
+/* sistema operacionais */
+
+.container-2 {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.linha {
+    position: relative;
+    padding-left: 15px;
+    border-left: 2px solid var(--text-color);
+}
+
+.linha:nth-child(even) {
+    border-left: none;
+    border-right: 5px solid var(--text-color);
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.pergunta {
+    font-weight: 700;
+    position: relative;
+}
+
+.pergunta::after {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 4px;
+    width: 100px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    opacity: 0.8;
+}
+
+.resposta {
+    margin: 20px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Windows XP */
+
+.title-2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    position: relative;
+    left: 300px;
+    margin-bottom: 40px;
+    color: #0078d7;
+}
+
+.content {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.left {
+    max-width: 400px;
+    flex: 1 1 40%;
+    position: relative;
+    left: 280px;
+}
+
+.left img {
+    width: 70%;
+    border-radius: 15px;
+    position: relative;
+    left: 50px;
+}
+
+.right {
+    max-width: 700px;
+    flex: 1 1 40%;
+    position: relative;
+    left: 300px;
+}
+
+.tabs {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+}
+
+.tab {
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    color: #7e7e7e;
+    text-transform: uppercase;
+}
+
+.tab:hover {
+    color: var(--text-color);
+}
+
+.tab.active {
+    color: var(--text-color);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.caracteristicas-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.curiosidades-list li {
+    margin-bottom: 10px;
+}
+
+
+/* Responsividade */

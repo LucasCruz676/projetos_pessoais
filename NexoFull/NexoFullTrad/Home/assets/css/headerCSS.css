@@ -1,0 +1,488 @@
+/* Estilos base do header */
+.header {
+  padding-inline: 16px;
+  border-bottom: solid 1px var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  background-color: var(--bg-color);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+  transform: translateY(0);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+/* Menu de navegação */
+.navHeader {
+  max-width: 1280px;
+  height: 85px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+/* Lista do menu */
+.navHeader-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 120vh;
+  overflow-y: auto;
+  width: 350px;
+  max-width: 80vw;
+  background: rgba(25, 25, 30, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2),
+    inset -1px 0 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* overflow: hidden; */
+  gap: 15px;
+  list-style: none;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-in-out, background-color 0.3s ease,
+    border-color 0.3s ease;
+  z-index: 9999;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  pointer-events: none;
+}
+.navHeader-list a {
+  /* GARANTIA DA FONTE LEXEND NO MENU HAMBÚRGUER */
+  font-family: "Lexend", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 15px;
+  width: fit-content;
+  display: block;
+}
+
+.navHeader-list a:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Estilo quando o menu está ativo */
+.navHeader.active .hamburguer span {
+  background-color: white !important;
+}
+
+.navHeader.active .navHeader-list {
+  transform: translateX(0);
+  box-shadow: 8px 0 16px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+}
+.nav-buttons,
+.language-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-btn,
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 6px;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::before,
+.lang-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.6s ease;
+}
+
+.nav-btn:hover::before,
+.lang-btn:hover::before {
+  transform: translateX(100%) skewX(-15deg);
+}
+
+.nav-btn:hover,
+.lang-btn:hover {
+  color: var(--header-border);
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lang-btn.active {
+  color: var(--header-border);
+  font-weight: 600;
+  transform: scale(1.05);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lang-btn.switching {
+  animation: languageSwitchNew 0.8s ease-in-out;
+}
+@keyframes languageSwitchNew {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    transform: scale(0.8) translateY(-5px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3) translateY(-8px);
+    opacity: 0.9;
+    color: var(--header-border);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  75% {
+    transform: scale(0.9) translateY(-3px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
+}
+/* Estilos específicos para o tema claro */
+[data-theme="light"] .nav-btn:hover,
+[data-theme="light"] .lang-btn:hover {
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .lang-btn.active {
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .nav-btn::before,
+[data-theme="light"] .lang-btn::before {
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 0, 0, 0.15),
+    transparent
+  );
+}
+
+/* Botão do menu hamburguer */
+.hamburguer {
+  position: fixed;
+  width: 35px;
+  height: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 10001;
+  padding: 0;
+  left: 30px;
+  top: 30px;
+}
+
+/* Linhas do botão hamburguer */
+.hamburguer span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
+}
+
+/* Posicionamento das linhas do botão */
+.hamburguer span:nth-child(1) {
+  top: 0;
+}
+.hamburguer span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburguer span:nth-child(3) {
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+/* Animação do botão quando ativo */
+.hamburguer.active span {
+  background: #000;
+}
+
+[data-theme="light"] .hamburguer.active span {
+  background: #fff;
+}
+
+.hamburguer.active span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.hamburguer.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburguer.active span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Estilo da logo */
+.logoHeader {
+  position: fixed;
+  left: 80px;
+  top: 5px;
+  height: 75px;
+  width: 75px;
+  z-index: 1000;
+  pointer-events: auto;
+}
+.logoHeader2 {
+  top: 5px;
+  height: 100px;
+  width: 100px;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .hamburguer {
+    left: 20px;
+  }
+  .logoHeader {
+    left: 70px;
+    top: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburguer {
+    left: 15px;
+  }
+  .logoHeader {
+    left: 60px;
+    height: 75px;
+    width: 75px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hamburguer {
+    left: 10px;
+  }
+  .logoHeader {
+    left: 50px;
+    height: 75px;
+    width: 75px;
+  }
+}
+@media (max-width: 415px) {
+  .hamburguer {
+    left: 12px;
+    padding-right: 4px;
+  }
+  .logoHeader {
+    top: 9px;
+    margin-left: -8px;
+    height: 65px;
+    width: 65px;
+  }
+
+  .navHeader-list a{
+    right: 8px;
+  }
+  .logoHeader2{
+    margin-left: -15px;
+    height: 80px;
+    width: 80px
+  }
+}
+@media (max-width: 360px) {
+  .logoHeader {
+    top: 10px;
+    
+    height: 63px;
+    width: 60px;
+  }
+  .navHeader-list{
+    max-width: 90vw;
+    height: 120vh;
+  }
+  .navHeader-list a{
+    left: 7px;
+  }
+  .hamburguer.active{
+    left: 20px;
+  }
+  .logoHeader2{
+    margin-left: -40px;
+    height: 80px;
+    width: 80px
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-width: 360px)
+  and (min-device-height: 740px)
+  and (max-device-height: 740px)
+  {
+    .background{
+      transform: translateX(25px);
+    }
+  }
+  @media only screen 
+  and (min-device-width: 344px) 
+  and (max-device-width: 344px)
+  and (min-device-height: 882px)
+  and (max-device-height: 882px)
+  {
+    .background{
+      transform: translateX(45px);
+    }
+  }
+  @media only screen 
+  and (min-device-width: 912px) 
+  and (max-device-width: 912px)
+  and (min-device-height: 1368px)
+  and (max-device-height: 1368px)
+  {
+    .background{
+      transform: translateY(px);
+    }
+    .background img{
+      height:fit-content;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 540px) 
+  and (max-device-width: 540px)
+  and (min-device-height: 720px)
+  and (max-device-height: 720px)
+  {
+
+    .background img{
+      height:fit-content;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px)
+  and (min-device-height: 1366px)
+  and (max-device-height: 1366px)
+  {
+
+    .background img{
+      height:fit-content;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 820px) 
+  and (max-device-width: 820px)
+  and (min-device-height: 1180px)
+  and (max-device-height: 1180px)
+  {
+    .background img{
+      height:fit-content;
+    }
+    .ajustar{
+      margin-left: 120px;
+      transform: translateY(80px);
+    }
+  }
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 768px)
+  and (min-device-height: 1024px)
+  and (max-device-height: 1024px)
+  {
+    .background{
+      transform: translateY(px);
+    }
+    .background img{
+      height:fit-content;
+    }
+    .ajustar{
+      margin-left: 120px;
+      transform: translateY(80px);
+    }
+  }
+  @media only screen 
+  and (min-device-width: 853px) 
+  and (max-device-width: 853px)
+  and (min-device-height: 1280px)
+  and (max-device-height: 1280px)
+  {
+    .background{
+      transform: translateY(px);
+    }
+    .background img{
+      height:fit-content;
+    }
+    .ajustar{
+      margin-left: 120px;
+      transform: translateY(80px);
+    }
+  }
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px)
+  and (min-device-height: 600px)
+  and (max-device-height: 600px)
+  {
+    .background{
+      transform: translateY(px);
+    }
+    .background img{
+      height:fit-content;
+    }
+    .ajustar{
+      margin-left: 120px;
+      transform: translateY(80px);
+    }
+  }

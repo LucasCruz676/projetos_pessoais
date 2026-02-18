@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #0b1d24;
+    color: white;
+}
+
+@font-face {
+    font-family: Instagram Sans;
+    src: url(../fonts/Instagram\ Sans\ Light.ttf)
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ================= LADO ESQUERDO ================= */
+
+.left {
+    flex: 1;
+    background: #0c1014;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LOGO */
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo i {
+    font-size: 89px;
+    background: linear-gradient(-1deg, #ffbb00, #e602b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    margin-right: 50px;
+}
+
+/* TEXTO */
+.left h1 {
+    font-size: 35px;
+    line-height: 1.2;
+    margin-top: 33px;
+    font-family: 'Instagram Sans';
+}
+
+.linha1 {
+    display: block;
+}
+
+.linha2 {
+    display: block;
+    text-align: center;
+    margin-top: 27px;
+    margin-left: -100px;
+}
+
+.color {
+    background: linear-gradient(45deg, #ff00cc, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* IMAGEM */
+.cards {
+    margin-top: 40px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ================= LADO DIREITO ================= */
+
+.right {
+    flex: 1;
+    background: #152127;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-box {
+    width: 500px;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: white;
+    font-size: 14px;
+}
+
+.login-box input::placeholder {
+    color: #aaa;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #1d4ed8;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.forgot {
+    display: block;
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 25px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-facebook {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    color: white;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.btn-facebook i {
+    margin-right: 8px;
+    color: #1d4ed8;
+}
+
+.btn-outline {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid #3b82f6;
+    border-radius: 25px;
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.meta {
+    text-align: center;
+    margin-top: 30px;
+    color: #aaa;
+    font-size: 14px;
+}

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operating Systems</title>
+  <script src="../shared/translations.js"></script>
+  <script src="../shared/languageManager.js"></script>
+  <link rel="stylesheet" href="assets/css/CSSgeral.css" />
+  <link rel="stylesheet" href="assets/css/headerCSS.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Mono+One&family=Russo+One&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/Sistemas.css">
+  <link rel="stylesheet" href="assets/css/Botao.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --header-border: #ffffff;
+      --nav-bg: rgb(31, 31, 31);
+      --hamburguer-color: #ffffff;
+      --scroll-btn-bg: rgba(0, 0, 0, 0.3);
+      --scroll-btn-color: #ffffff;
+      --scroll-btn-hover-bg: rgba(0, 0, 0, 0.5);
+      --transition-theme: 0.3s ease;
+      --accent-color: #0078d7;
+      --card-bg: #1a1a1a;
+      --border-color: #333;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --header-border: #000000;
+      --nav-bg: rgb(240, 240, 240);
+      --hamburguer-color: #000000;
+      --scroll-btn-bg: rgba(255, 255, 255, 0.7);
+      --scroll-btn-color: #000000;
+      --scroll-btn-hover-bg: rgba(255, 255, 255, 0.9);
+      --card-bg: #f5f5f5;
+      --border-color: #ddd;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: "Lexend", sans-serif;
+      min-height: 100vh;
+    }
+
+    .text-white-invert {
+      color: var(--text-color);
+    }
+
+    .img-invert {
+      filter: invert(0);
+    }
+
+    [data-theme="light"] .img-invert {
+      filter: invert(1);
+    }
+
+    .hero-section {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 4px;
+      width: 100px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #0078d7, #00a2ff);
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .os-feature-card {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .os-feature-card h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .os-feature-card p {
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    .windows-section {
+      background-color: rgba(0, 120, 215, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .windows-title {
+      color: #0078d7;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      color: #7e7e7e;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      color: var(--text-color);
+    }
+
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--text-color);
+    }
+
+    .accordion-button {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: rgba(0, 120, 215, 0.1);
+      color: var(--text-color);
+    }
+
+    .accordion-body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .example-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .example-list li {
+      font-weight: bold;
+      margin-top: 1.5rem;
+    }
+
+    .example-list p {
+      margin-left: 1rem;
+      opacity: 0.8;
+    }
+
+    .border-start-custom {
+      border-left: 2px solid var(--text-color);
+      padding-left: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .border-start-custom {
+        border-left: none;
+        border-top: 2px solid var(--text-color);
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+    }
+
+       /* Windows XP Section Styles - CORRIGIDO */
+       .windows-xp-section {
+      background: linear-gradient(135deg, rgba(0, 120, 215, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+      border-radius: 15px;
+      padding: 3rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(0, 120, 215, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="light"] .windows-xp-section {
+      background: linear-gradient(135deg, rgba(0, 120, 215, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+      border: 1px solid rgba(0, 120, 215, 0.1);
+    }
+
+    .windows-xp-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #0078d7, #00a2ff);
+    }
+
+    .windows-xp-title {
+      color: var(--accent-color);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .tab-container {
+      margin-top: 2rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-button-xp {
+      background: none;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      color: #7e7e7e;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tab-button-xp:hover {
+      color: var(--text-color);
+    }
+
+    .tab-button-xp.active {
+      color: var(--text-color);
+    }
+
+    .tab-button-xp.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    .tab-content-xp {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content-xp.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent-color);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h4 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    .xp-image {
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .xp-image:hover {
+      transform: scale(1.02);
+    }
+
+    .xp-intro {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    .fun-fact {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #ffb900;
+      border: 1px solid var(--border-color);
+    }
+
+    .fun-fact h4 {
+      color: #ffb900;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .windows-xp-title {
+        font-size: 2rem;
+      }
+
+      .tab-buttons {
+        flex-direction: column;
+      }
+
+      .tab-button-xp {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+        /* Windows 8 Section Styles - CORRIGIDO */
+        .windows-8-section {
+      background: linear-gradient(135deg, rgba(0, 120, 215, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+      border-radius: 15px;
+      padding: 3rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(0, 120, 215, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="light"] .windows-8-section {
+      background: linear-gradient(135deg, rgba(0, 120, 215, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+      border: 1px solid rgba(0, 120, 215, 0.1);
+    }
+
+    .windows-8-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #0078d7, #00a2ff);
+    }
+
+    .windows-8-title {
+      color: var(--accent-color);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .windows-8-intro {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    .windows-8-box {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .windows-8-box h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .windows-8-box .preview-text {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .windows-8-box .expanded-content {
+      display: none;
+      margin-top: 1.5rem;
+    }
+
+    .windows-8-box.expanded .expanded-content {
+      display: block;
+    }
+
+    .see-more-btn {
+      background: none;
+      border: none;
+      color: var(--accent-color);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 1rem;
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+
+    .see-more-btn:hover {
+      color: #00a2ff;
+    }
+
+    .windows-8-box.expanded .see-more-btn .see-more-text {
+      display: none;
+    }
+
+    .windows-8-box.expanded .see-more-btn .see-less-text {
+      display: inline;
+    }
+
+    .see-less-text {
+      display: none;
+    }
+
+    .windows-8-box.expanded .see-more-btn i {
+      transform: rotate(180deg);
+    }
+
+    .windows-8-box .see-more-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .windows-8-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .windows-8-item h5 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .windows-8-item p {
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    /* NOVAS REGRAS PARA MOBILE */
+    @media (max-width: 768px) {
+      .windows-8-title {
+        font-size: 2rem;
+      }
+      
+      .windows-8-section {
+        padding: 2rem 1rem;
+      }
+      
+      .windows-8-box {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .windows-8-item {
+        margin-bottom: 1rem;
+      }
+      
+      .windows-8-item h5 {
+        font-size: 1rem;
+      }
+      
+      .windows-8-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      
+      /* Garante que o texto seja legível em telas pequenas */
+      .windows-8-box h3 {
+        font-size: 1.3rem;
+      }
+      
+      .preview-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Para telas muito pequenas */
+    @media (max-width: 480px) {
+      .windows-8-box {
+        padding: 0.8rem;
+      }
+      
+      .see-more-btn {
+        font-size: 0.9rem;
+      }
+    }
+  
+  /* Garante que o texto seja legível em telas pequenas */
+  .windows-8-box h3 {
+    font-size: 1.3rem;
+  }
+  
+  .preview-text {
+    font-size: 0.95rem;
+  }
+
+/* Para telas muito pequenas */
+@media (max-width: 480px) {
+  .windows-8-box {
+    padding: 0.8rem;
+  }
+  
+  .see-more-btn {
+    font-size: 0.9rem;
+  }
+}
+
+    /* CORREÇÃO DO CARACTERE "q" - ADICIONE ESTE BLOCO */
+    .pergunta::after {
+      content: ''; /* CORRIGIDO - estava com "q" ou vazio */
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      height: 4px;
+      width: 100px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #0078d7, #00a2ff);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navHeader">
+      <button class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navHeader-list">
+        <li><a href="../Home/index-en.html" data-i18n="nav_home">Home</a></li>
+        <li>
+          <a href="../PagDevs/index-en.html" data-i18n="nav_developers">Developers Page</a>
+        </li>
+        <li><a href="../Timeline/index-en.html" data-i18n="nav_timeline">Timeline</a></li>
+        <li><a href="../RedesSociais/index-en.html" data-i18n="nav_social_networks">Social Media</a></li>
+        <li>
+          <a href="../AssistenteVirtual/index-en.html" data-i18n="nav_virtual_assistants">Virtual Assistants</a>
+        </li>
+        <li>
+          <a href="../ComputadorQuantico/index-en.html" data-i18n="nav_quantum_computers">Quantum Computers</a>
+        </li>
+        <li><a href="../AndroidVSIOS/index-en.html" data-i18n="nav_android_ios">Android vs iOS</a></li>
+        <li><a href="../Sistemas operacionais/index-en.html" data-i18n="nav_operating_systems">Operating Systems</a>
+        </li>
+        <li><a href="../LinguagensProgramação/index-en.html">Programming Languages</a></li>
+        <li><a href="../Quiz/index-en.html">Quiz</a></li>
+
+        <a href="../Home/index-en.html"><img src="assets/img/logoNEXO.png" class="logoHeader2 img-invert"
+            alt="NEXO Logo" /></a>
+      </ul>
+      <a href="../Home/index-en.html"><img src="assets/img/logoNEXO.png" class="logoHeader img-invert"
+          alt="NEXO Logo" /></a>
+
+      <div class="header-buttons">
+        <div class="nav-buttons">
+          <button class="nav-btn" data-i18n="nav_about">ABOUT US</button>
+          <button class="nav-btn" data-i18n="nav_contact">CONTACT</button>
+        </div>
+        <div class="language-buttons">
+          <button class="lang-btn active">EN</button>
+          <button class="lang-btn">PT</button>
+        </div>
+      </div>
+
+      <div class="dark-mode-switch">
+        <input type="checkbox" class="material-symbols-rounded" id="theme-toggle" />
+        <label for="theme-toggle">Dark mode</label>
+      </div>
+    </nav>
+  </header>
+
+  <div style="height: 85px;"></div>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img src="assets/img/Sistemas-operacionaisPNG.png" class="hero-background" alt="Background">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="hero-title text-white-invert scroll-reveal" data-i18n="page_title">Operating Systems</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What are Operating Systems? -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center scroll-reveal" data-i18n="os_examples">Examples of Operating Systems</h2>
+        <div class="row justify-content-center"> <!-- Adicionei justify-content-center -->
+          <div class="col-sm-6 col-lg-3 mb-4"> <!-- Mudei col-md-6 para col-sm-6 -->
+            <div class="os-feature-card card-hover h-100 scroll-reveal-left">
+              <h3 data-i18n="windows_example">Windows</h3>
+              <p data-i18n="windows_desc">Widely used in PCs and businesses, with an easy interface and many programs.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4"> <!-- Mudei col-md-6 para col-sm-6 -->
+            <div class="os-feature-card card-hover h-100 scroll-reveal">
+              <h3 data-i18n="ios_example">iOS</h3>
+              <p data-i18n="ios_desc">From Apple, used in iPhones and iPads, stands out for security, integration and good performance.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4"> <!-- Mudei col-md-6 para col-sm-6 -->
+            <div class="os-feature-card card-hover h-100 scroll-reveal">
+              <h3 data-i18n="linux_example">Linux</h3>
+              <p data-i18n="linux_desc">Free and open source, preferred by programmers and servers for security and flexibility.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4"> <!-- Mudei col-md-6 para col-sm-6 -->
+            <div class="os-feature-card card-hover h-100 scroll-reveal-right">
+              <h3 data-i18n="android_example">Android</h3>
+              <p data-i18n="android_desc">Google's system for phones and tablets, famous for customization and variety of apps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples of Operating Systems -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center scroll-reveal" data-i18n="os_examples">Examples of Operating Systems</h2>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="os-feature-card card-hover h-100 scroll-reveal-left">
+              <h3 data-i18n="windows_example">Windows</h3>
+              <p data-i18n="windows_desc">Widely used in PCs and businesses, with an easy interface and many programs.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="os-feature-card card-hover h-100 scroll-reveal">
+              <h3 data-i18n="ios_example">iOS</h3>
+              <p data-i18n="ios_desc">From Apple, used in iPhones and iPads, stands out for security, integration and good performance.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="os-feature-card card-hover h-100 scroll-reveal">
+              <h3 data-i18n="linux_example">Linux</h3>
+              <p data-i18n="linux_desc">Free and open source, preferred by programmers and servers for security and flexibility.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="os-feature-card card-hover h-100 scroll-reveal-right">
+              <h3 data-i18n="android_example">Android</h3>
+              <p data-i18n="android_desc">Google's system for phones and tablets, famous for customization and variety of apps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Windows XP Section - Updated with Interactive Tabs -->
+    <section class="windows-xp-section scroll-reveal">
+      <div class="container">
+        <h2 class="windows-xp-title" data-i18n="windows_xp_title">Windows XP</h2>
+
+        <div class="row">
+          <!-- Left Column - Introduction and Image -->
+          <div class="col-lg-6 mb-4">
+            <p class="xp-intro scroll-reveal" data-i18n="windows_xp_intro">
+              Windows XP is one of the most iconic operating systems in Microsoft's history,
+              officially released on October 25, 2001. It combined the stability of Windows 2000
+              with the ease of use of Windows ME, creating a reliable and accessible platform
+              for millions of users worldwide. With its friendly interface, solid performance
+              and wide software compatibility, Windows XP became an icon of the golden age
+              of personal computers.
+            </p>
+            <img src="assets/img/windowsXP.png" alt="Windows XP" class="img-fluid xp-image scroll-reveal">
+          </div>
+
+          <!-- Right Column - Tabs and Content -->
+          <div class="col-lg-6">
+            <div class="tab-container">
+              <!-- Tab Buttons -->
+              <div class="tab-buttons">
+                <button class="tab-button-xp active" data-tab="features"
+                  data-i18n="windows_xp_features">Features</button>
+                <button class="tab-button-xp" data-tab="curiosities"
+                  data-i18n="windows_xp_curiosities">Curiosities</button>
+              </div>
+
+              <!-- Tab Content -->
+              <div class="tab-content-xp active" id="features">
+                <h3 class="mb-4 scroll-reveal" data-i18n="windows_xp_features_title">Main Features of Windows XP</h3>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_security">Security and Stability</h4>
+                  <p data-i18n="windows_xp_security_desc">Based on the Windows NT kernel, it offered much more security
+                    and reliability compared to previous versions.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_hardware">Hardware Support</h4>
+                  <p data-i18n="windows_xp_hardware_desc">Compatible with a huge variety of devices and
+                    hardware peripherals and drivers.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_network">Network and Internet Wizard</h4>
+                  <p data-i18n="windows_xp_network_desc">Facilitated the configuration of home and corporate networks and connections, making the process more intuitive.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_compatibility">Compatibility Mode</h4>
+                  <p data-i18n="windows_xp_compatibility_desc">Allowed older applications to run
+                    without problems on the new system.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_interface">Updated Visual Interface</h4>
+                  <p data-i18n="windows_xp_interface_desc">Introduced the Luna theme, with vibrant colors and more
+                    modern icons, making the visual experience more pleasant.</p>
+                </div>
+              </div>
+
+              <div class="tab-content-xp" id="curiosities">
+                <h3 class="mb-4 scroll-reveal" data-i18n="windows_xp_curiosities_title">Curiosities about Windows XP</h3>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_codename">Codename "Whistler"</h4>
+                  <p data-i18n="windows_xp_codename_desc">Windows XP was developed under the codename "Whistler",
+                    a reference to the Whistler Blackcomb ski resort in Canada.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_longevity">Impressive Longevity</h4>
+                  <p data-i18n="windows_xp_longevity_desc">Windows XP had one of the longest life cycles of
+                    Microsoft, with extended support until April 2014 - almost 13 years after its release.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_wallpaper">Bliss Wallpaper</h4>
+                  <p data-i18n="windows_xp_wallpaper_desc">The famous "Bliss" background image was a real photograph
+                    taken in the Sonoma wine region, California, in 1996.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_editions">Special Editions</h4>
+                  <p data-i18n="windows_xp_editions_desc">In addition to the Home and Professional versions, Microsoft released
+                    specific editions for tablets (Tablet PC Edition) and for embedded devices.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                  <h4 data-i18n="windows_xp_innovations">File System Innovations</h4>
+                  <p data-i18n="windows_xp_innovations_desc">Windows XP was the first version of Windows to include
+                    native support for CD burning, without the need for additional software.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Windows 8 Section - Updated with Interactive Boxes -->
+    <section class="windows-8-section scroll-reveal">
+      <div class="container">
+        <h2 class="windows-8-title" data-i18n="windows_8_title">Windows 8</h2>
+
+        <div class="row">
+          <div class="col-12">
+            <p class="windows-8-intro scroll-reveal" data-i18n="windows_8_intro">
+              Windows 8 is a version of the Windows operating system released by Microsoft on October 26, 2012,
+              with a focus on interfaces optimized for touch and mobile devices; official support for Windows 8 was
+              later discontinued, and the next version was Windows 8.1. This version was criticized by
+              users accustomed to the classic Windows model and was quickly adjusted by the company in
+              updates and in version 8.1. Windows 8 marked Microsoft's transition to a unified vision between
+              desktop and mobile devices, influencing the development of interfaces and hybrid devices.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Features Box -->
+          <div class="col-lg-6 mb-4">
+            <div class="windows-8-box scroll-reveal-left" id="features-box">
+              <h3 data-i18n="windows_8_features">Features</h3>
+              <p class="preview-text" data-i18n="windows_8_features_preview">What made Windows 8 so different</p>
+
+              <div class="expanded-content">
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_interface">Metro Interface / Start Screen</h5>
+                  <p data-i18n="windows_8_interface_desc">Replaced the Start Menu with dynamic tiles (Live Tiles) on
+                    the Start Screen, designed for touch interaction and to unify the experience between tablets and PCs.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_management">New management features</h5>
+                  <p data-i18n="windows_8_management_desc">Integration with modern installation tools, Windows To
+                    Go and features aimed at businesses and administration.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_performance">Boot and performance</h5>
+                  <p data-i18n="windows_8_performance_desc">Improvements in startup time and power management, targeting mobile devices
+                    and SSDs.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_cloud">Cloud integration</h5>
+                  <p data-i18n="windows_8_cloud_desc">Greater integration with Microsoft cloud services, such as
+                    OneDrive, facilitating access to files on different devices.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_store">Windows Store</h5>
+                  <p data-i18n="windows_8_store_desc">Introduced the Windows Store, a centralized platform for
+                    app distribution, following the mobile app store model.</p>
+                </div>
+              </div>
+
+              <button class="see-more-btn">
+                <span class="see-more-text" data-i18n="see_more">See more</span>
+                <span class="see-less-text" data-i18n="see_less">See less</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Curiosities Box -->
+          <div class="col-lg-6 mb-4">
+            <div class="windows-8-box scroll-reveal-right" id="curiosities-box">
+              <h3 data-i18n="windows_8_curiosities">Curiosities</h3>
+              <p class="preview-text" data-i18n="windows_8_curiosities_preview">Curious facts and bold decisions that
+                marked Windows 8</p>
+
+              <div class="expanded-content">
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_preview">Popular preview releases</h5>
+                  <p data-i18n="windows_8_preview_desc">The Windows 8 Consumer Preview version had over 1 million
+                    downloads in the first 24 hours after its public test release.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_togo">Windows To Go</h5>
+                  <p data-i18n="windows_8_togo_desc">Allowed creating a portable Windows on a corporate USB drive capable
+                    of booting on different hardware, a feature uncommon in previous versions.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_tablets">Impact on tablet sales</h5>
+                  <p data-i18n="windows_8_tablets_desc">Windows 8 was an explicit attempt to compete with iPad and
+                    Android in the tablet market, leading to the development of hybrid devices and convertible ultrabooks.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_menu">Removal of Start Menu</h5>
+                  <p data-i18n="windows_8_menu_desc">One of the most controversial changes was the removal of the traditional Start Menu,
+                    which was later reintroduced in Windows 8.1 after negative user feedback.</p>
+                </div>
+
+                <div class="windows-8-item">
+                  <h5 data-i18n="windows_8_touch">Focus on touch devices</h5>
+                  <p data-i18n="windows_8_touch_desc">Windows 8 was primarily designed for touch screen devices,
+                    which led to a less optimized experience for traditional mouse and keyboard users.</p>
+                </div>
+              </div>
+
+              <button class="see-more-btn">
+                <span class="see-more-text" data-i18n="see_more">See more</span>
+                <span class="see-less-text" data-i18n="see_less">See less</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section contact-info">
+            <h4>Contact Us:</h4>
+            <p><i class="fas fa-phone"></i> 55 11 919444566</p>
+            <p><i class="fas fa-envelope"></i> Nexo1676@gmail.com</p>
+        </div>
+        <div class="footer-section insta-geral">
+            <h4>Instagram:</h4>
+            <p>
+                <a href="https://www.instagram.com/nexo_1676">
+                    <i class="fa-brands fa-instagram"></i> Nexo
+                </a>
+            </p>
+        </div>
+        <div class="footer-section privacy-policy">
+            <a href="">
+                <h4>Privacy Policy</h4>
+            </a>
+            <a href="">
+                <p>Terms of Service</p>
+            </a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright 2025 Nexo</p>
+    </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/darkMode.js"></script>
+  <script src="assets/js/menuBG.js"></script>
+  <script src="assets/js/headerScroll.js"></script>
+  <script src="../Traducao/languageButtons.js"></script>
+  <script src="assets/js/SistemasOperac.js"></script>
+</body>
+
+</html>

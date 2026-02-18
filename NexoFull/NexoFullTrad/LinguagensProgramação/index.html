@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linguagens de Programação</title>
+  <script src="../shared/translations.js"></script>
+  <script src="../shared/languageManager.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/CSSgeral.css" />
+  <link rel="stylesheet" href="assets/css/headerCSS.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Mono+One&family=Russo+One&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/linguagens.css">
+  <link rel="stylesheet" href="assets/css/Botao.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://kit.fontawesome.com/2da12273ec.js" crossorigin="anonymous"></script>
+  <style>
+    /* Estilos adicionais para melhorar a responsividade */
+    .hero-section {
+      padding: 4rem 0;
+    }
+
+    .code-title {
+      font-family: 'Courier New', monospace;
+      font-size: 3.5rem !important;
+      font-weight: 700;
+    }
+
+    .language-types {
+      margin: 4rem 0;
+    }
+
+    .language-types ul {
+      padding-left: 1.5rem;
+    }
+
+    .language-types li {
+      margin-bottom: 0.5rem;
+    }
+
+    .card-linguagem {
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .card-linguagem:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* CORREÇÕES PARA O MODO CLARO/ESCURO */
+    .card {
+      background-color: var(--card-bg, #1a1a1a);
+      color: var(--text-color);
+      border: 1px solid var(--border-color, #333);
+    }
+
+    .card-body {
+      color: var(--text-color) !important;
+    }
+
+    .card-text {
+      color: var(--text-color) !important;
+    }
+
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    [data-theme="light"] .text-muted {
+      color: #6c757d !important;
+    }
+
+    /* ANIMAÇÕES DE SCROLL */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal-left.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal-right.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* CORREÇÃO DA LOGO NO HEADER - AGORA CORRETA */
+    .img-invert {
+        filter: brightness(0) invert(1);
+    }
+
+    [data-theme="light"] .img-invert {
+        filter: brightness(0) invert(0);
+    }
+
+    /* VARIÁVEIS CSS ADICIONAIS */
+    :root {
+      --card-bg: #1a1a1a;
+      --border-color: #333;
+      --text-muted: #adb5bd;
+    }
+
+    [data-theme="light"] {
+      --card-bg: #ffffff;
+      --border-color: #dee2e6;
+      --text-muted: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+
+      .code-title {
+        font-size: 2rem !important;
+      }
+
+      .subtitle {
+        font-size: 1.2rem !important;
+      }
+
+      .container-2 {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .elemento img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .code-title {
+        font-size: 1.5rem !important;
+      }
+      
+      .card-linguagem {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navHeader">
+      <button class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navHeader-list">
+        <li><a href="../Home/index.html">Página Inicial</a></li>
+        <li>
+          <a href="../PagDevs/index.html">Página dos Desenvolvedores</a>
+        </li>
+        <li><a href="../Timeline/index.html">Linha do Tempo</a></li>
+        <li><a href="../RedesSociais/index.html">Redes Sociais</a></li>
+        <li>
+          <a href="../AssistenteVirtual/index.html">Assistentes Virtuais</a>
+        </li>
+        <li>
+          <a href="../ComputadorQuantico/index.html">Computadores Quânticos</a>
+        </li>
+        <li><a href="../AndroidVSIOS/index.html">Android e IOS</a></li>
+        <li><a href="../Sistemas operacionais/index.html">Sistemas Operacionais</a></li>
+        <li><a href="../LinguagensProgramação/index.html">Linguagens de Programação</a></li>
+        <li><a href="../Quiz/index.html">Quiz</a></li>
+
+        <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader2 img-invert"
+            alt="Logo NEXO" /></a>
+      </ul>
+      <a href="../Home/index.html"><img src="assets/img/logoNEXO.png" class="logoHeader img-invert"
+          alt="Logo NEXO" /></a>
+
+      <div class="header-buttons">
+        <div class="nav-buttons">
+          <button class="nav-btn">SOBRE-NÓS</button>
+          <button class="nav-btn">CONTATO</button>
+        </div>
+        <div class="language-buttons">
+          <button class="lang-btn">EN</button>
+          <button class="lang-btn active">PT</button>
+        </div>
+      </div>
+
+      <div class="dark-mode-switch">
+        <input type="checkbox" class="material-symbols-rounded" id="theme-toggle" />
+        <label for="theme-toggle">Dark mode</label>
+      </div>
+    </nav>
+  </header>
+
+  <button class="scroll-down" id="scrollDownBtn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 16l-4-4 1.41-1.41L12 13.17l2.59-2.58L16 12z" />
+    </svg>
+</button>
+  <div style="height: 85px;"></div>
+
+  <main class="main-content">
+
+  <button class="scroll-to-top" id="scrollTopBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 8l-4 4 1.41 1.41L12 10.83l2.59 2.58L16 12z" />
+      </svg>
+  </button>
+    <section class="secao-linguagens text-white-invert py-5" id="linguagens">
+      <div class="container">
+        <!-- Título com estilo de código -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <h1 class="code-title mb-3 scroll-reveal">
+              <span class="system">System</span>
+              <span class="ponto">.</span>
+              <span class="out">out</span>
+              <span class="ponto">.</span>
+              <span class="println">println</span>
+              <span class="text-white">(</span>
+              <span class="text-success">"linguagens de programação"</span>
+              <span class="text-white">)</span>
+              <span class="ponto">;</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Seção de introdução com imagem e texto -->
+        <div class="row align-items-center mb-5 hero-section">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="assets/img/comp_semFundo.png" alt="Computador" class="img-fluid w-100 scroll-reveal-left">
+          </div>
+          <div class="col-lg-6">
+            <h2 class="h3 mb-3 scroll-reveal">O que são Linguagens de programação?</h2>
+            <p class="lead scroll-reveal">
+              Linguagens de programação são os meios pelos quais desenvolvedores instruem computadores a realizar
+              tarefas. Com elas, é possível criar desde sites simples até sistemas complexos de inteligência
+              artificial, jogos, aplicativos móveis e softwares empresariais.
+            </p>
+          </div>
+        </div>
+
+        <!-- Seção de tipos de linguagens -->
+        <div class="row language-types">
+          <div class="col-12">
+            <h2 class="h3 mb-4 scroll-reveal">Tipos de Linguagens de Programação</h2>
+            <p class="mb-4 scroll-reveal">
+              Existem diversas linguagens de programação, cada uma com suas características e finalidades específicas.
+              Nelas existem dois grandes grupos:
+            </p>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="card h-100 scroll-reveal-left">
+                  <div class="card-body">
+                    <h5 class="card-title">Linguagem de Alto Nível</h5>
+                    <p class="card-text">
+                      Mais próximas da linguagem humana, como Python, Java e JavaScript.
+                      São fáceis de aprender, ideais para projetos diversos.
+                    </p>
+                    <ul class="list-unstyled">
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Mais fácil de aprender</li>
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Abstração de hardware</li>
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Produtividade aumentada</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="card h-100 scroll-reveal-right">
+                  <div class="card-body">
+                    <h5 class="card-title">Linguagem de Baixo Nível</h5>
+                    <p class="card-text">
+                      Mais próximas da linguagem de máquina, como Assembly e C.
+                      Usadas em sistemas que exigem desempenho máximo.
+                    </p>
+                    <ul class="list-unstyled">
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Alto desempenho</li>
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Controle direto do hardware</li>
+                      <li><i class="bi bi-check-circle text-success me-2"></i>Menos abstração</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards de linguagens -->
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h2 class="h3 scroll-reveal">Principais Linguagens de Programação</h2>
+            <p class="text-muted scroll-reveal">Conheça algumas das linguagens mais populares e seus usos</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card card-linguagem scroll-reveal-left">
+              <img src="assets/img/javascript.png" class="card-img-top" alt="JavaScript">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">JavaScript</h5>
+                <p class="card-text flex-grow-1">Linguagem de programação amplamente utilizada para desenvolvimento web,
+                  permitindo
+                  criar páginas interativas e dinâmicas.</p>
+                <div class="mt-auto">
+                  <span class="linguagem-badge">Web</span>
+                  <span class="linguagem-badge">Frontend</span>
+                  <span class="linguagem-badge">Backend</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card card-linguagem scroll-reveal">
+              <img src="assets/img/Python.png" class="card-img-top" alt="Python">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Python</h5>
+                <p class="card-text flex-grow-1">Linguagem de alto nível conhecida por sua sintaxe clara e legível,
+                  muito utilizada
+                  em ciência de dados, IA e automação.</p>
+                <div class="mt-auto">
+                  <span class="linguagem-badge">IA</span>
+                  <span class="linguagem-badge">Data Science</span>
+                  <span class="linguagem-badge">Automação</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card card-linguagem scroll-reveal-right">
+              <img src="assets/img/java.png" class="card-img-top" alt="Java">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Java</h5>
+                <p class="card-text flex-grow-1">Linguagem orientada a objetos robusta e multiplataforma, muito
+                  utilizada em
+                  aplicações empresariais e Android.</p>
+                <div class="mt-auto">
+                  <span class="linguagem-badge">Enterprise</span>
+                  <span class="linguagem-badge">Android</span>
+                  <span class="linguagem-badge">OOP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card card-linguagem scroll-reveal-left">
+              <img src="assets/img/Csharp.png" class="card-img-top" alt="C#">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">C#</h5>
+                <p class="card-text flex-grow-1">Linguagem desenvolvida pela Microsoft, muito utilizada no
+                  desenvolvimento de
+                  aplicações Windows e jogos com Unity.</p>
+                <div class="mt-auto">
+                  <span class="linguagem-badge">Windows</span>
+                  <span class="linguagem-badge">Games</span>
+                  <span class="linguagem-badge">.NET</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card card-linguagem scroll-reveal-right">
+              <img src="assets/img/Cplus.png" class="card-img-top" alt="C++">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">C++</h5>
+                <p class="card-text flex-grow-1">Linguagem de programação de alto desempenho, muito utilizada em
+                  sistemas
+                  operacionais, jogos e aplicações de baixo nível.</p>
+                <div class="mt-auto">
+                  <span class="linguagem-badge">Performance</span>
+                  <span class="linguagem-badge">Games</span>
+                  <span class="linguagem-badge">System</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section contact-info">
+        <h4>Nos Contate:</h4>
+        <p><i class="fas fa-phone"></i> 55 11 919444566</p>
+        <p><i class="fas fa-envelope"></i> Nexo1676@gmail.com.br</p>
+      </div>
+      <div class="footer-section insta-geral">
+        <h4>Instagram da empresa:</h4>
+        <p><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/nexo_1676">Nexo</p></a>
+      </div>
+      <div class="footer-section privacy-policy">
+        <a href="">
+          <h4>Políticas de privacidade</h4>
+        </a>
+        <a href="">
+          <p>Termos de condição</p>
+        </a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 Nexo</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/darkMode.js"></script>
+  <script src="assets/js/menuBG.js"></script>
+  <script src="assets/js/headerScroll.js"></script>
+  <script src="../Traducao/languageButtons.js"></script>
+  <script src="assets/js/Botao.Js"></script>
+  <script>
+    // Script para animações de scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      function initScrollReveal() {
+        const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+        
+        const elementInView = (el, dividend = 1) => {
+          const elementTop = el.getBoundingClientRect().top;
+          return (
+            elementTop <= 
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+          );
+        };
+
+        const displayScrollElement = (element) => {
+          element.classList.add('revealed');
+        };
+
+        const handleScrollAnimation = () => {
+          scrollElements.forEach((el) => {
+            if (elementInView(el, 1.2)) {
+              displayScrollElement(el);
+            }
+          });
+        };
+
+        // Initial check
+        handleScrollAnimation();
+        
+        // Listen for scroll events with throttle
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              handleScrollAnimation();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+
+      // Add loading animation to body
+      document.body.classList.add('fade-in');
+      
+      // Initialize scroll animations
+      initScrollReveal();
+    });
+  </script>
+</body>
+
+</html>

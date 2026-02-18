@@ -1,0 +1,114 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border: #ffffff;
+    --nav-bg: rgb(31, 31, 31);
+    --hamburguer-color: #ffffff;
+    --footer-text-color: #cccccc;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border: #000000;
+    --nav-bg: rgb(240, 240, 240);
+    --hamburguer-color: #000000;
+    --footer-text-color: #333333;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 40px 0 20px 0;
+    margin: 0 auto;
+    border-top: solid 0.5px var(--border);
+    border-bottom: solid 0.5px var(--footer-text-color);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 0 16px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--footer-text-color);
+}
+
+.footer-section.social-media a {
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--footer-text-color);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--footer-text-color);
+    padding: 0 16px;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .footer-section:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .footer-section h4 {
+        border-bottom: solid 0.5px var(--footer-text-color);
+        padding-bottom: 10px;
+    }
+}

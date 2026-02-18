@@ -1,0 +1,142 @@
+body {
+    background-color: rgb(29, 29, 29);
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo-background img {
+    width: 200px;
+    height: 125px;
+    margin-left: 15px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.input-group {
+    display: flex;
+    background: #3d3d3da4;
+    padding: 20px 55px;
+    border-radius: 25px;
+    margin-left: 445px;
+}
+
+.input-icon{
+    color: #666;
+    margin-right: 70px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.login-box {
+    margin-left: auto;
+    margin-right: -40px;
+    width: 100px;
+    scale: 3;
+}
+
+.login-box :hover {
+    cursor: pointer;
+}
+
+.add-marc marquee {
+    color: white;
+    font-size: 20px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.title img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.section button {
+    background-color: rgba(48, 48, 48, 0.527);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: -10px;
+    margin-left: 80px;
+}
+
+.section button:hover {
+    background-color: rgba(48, 48, 48, 0.8);
+}
+
+
+.item {
+    display: inline-block;
+    margin: 20px;
+    background-color: rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(54, 54, 54, 0.562);
+    border-radius: 5%;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(199, 198, 198, 0.2);
+}
+
+.item-image img {
+    width: 150px;
+    height: 120px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.item-content {
+    padding: 10px;
+    text-align: left;
+    background-color: rgb(56, 56, 56);
+    border-radius: 5%;
+}
+
+.item-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#no_results {
+    color: #a0a0a0;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    list-style: none;
+}
+
+
+
+
+.adds .add-1 {
+    width: 300px;
+    height: 800px;
+    border-radius: 10px;
+    position: relative;
+    left: 1300px;
+    top: -200px;
+}
