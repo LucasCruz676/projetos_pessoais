@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirella</title>
+    <link rel="stylesheet" href="css-script/style_carta.css">
+    <link rel="stylesheet" href="css-script/style_coração.css">
+    <link rel="stylesheet" href="css-script/style_geral.css">
+    <link rel="stylesheet" href="css-script/style.music.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Mirella</strong>
+                        <p>
+                            Mesmo com apenas 2 meses, você já se tornou uma das pessoas mais importantes da minha vida. Cada
+                            conversa, risada e momento ao seu lado faz meus dias melhores. Feliz Dia dos Namorados, Meu amor❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <div class="contador-container">
+        <p class="contador-texto">
+            A gente se conhece a
+            <span id="dias"></span>d
+            <span id="horas"></span>h
+            <span id="minutos"></span>m
+            <span id="segundos"></span>s 💕
+        </p>
+    </div>
+
+    <div class="btn-chuva-wrapper">
+        <button class="btn-chuva-coracao" id="btnChuva">
+            Ganhar Supresa 🎁
+        </button>
+    </div>
+
+
+    <div class="polaroid" id="polaroidBox">
+        <div class="photo-area">
+            <div class="cover-black"></div>
+
+            <!-- Coloque sua foto aqui -->
+            <img src="img/fto_perf.jpeg" alt="foto">
+        </div>
+        <div class="caption">Meu Amor ❤️</div>
+    </div>
+
+    <!-- Lista de músicas (sidebar esquerda, abaixo do contador) -->
+
+
+    <div class="playlist-sidebar">
+        <div class="playlist-sidebar-title">🎶 Nossa Playlist</div>
+        <!-- tracks inseridos pelo JS -->
+        <div id="playlistSidebar"></div>
+    </div>
+
+    <!-- Player iOS Glassmorphism -->
+    <div class="ios-player-overlay" id="iosOverlay">
+        <div class="ios-player">
+            <div class="ios-player-glow" id="iosGlow"></div>
+            <button class="ios-player-close" id="iosClose">✕</button>
+
+            <div class="ios-device-label">Nossas musicas</div>
+
+            <div class="ios-cover" id="iosCover">🎵</div>
+
+            <div class="ios-meta">
+                <div class="ios-meta-text">
+                    <div class="ios-title" id="iosTitle">—</div>
+                    <div class="ios-sub" id="iosSub">—</div>
+                </div>
+                <button class="ios-heart" id="iosHeart">♡</button>
+            </div>
+
+            <div class="ios-progress-bar">
+                <div class="ios-progress-fill" id="iosFill"></div>
+            </div>
+            <div class="ios-time-row">
+                <span id="iosElapsed">0:00</span>
+                <span id="iosRemain">-0:00</span>
+            </div>
+
+            <div class="ios-controls">
+                <button class="ios-btn" id="iosPrev" aria-label="Anterior">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
+                    </svg>
+                </button>
+                <button class="ios-btn ios-btn-play" id="iosPlay" aria-label="Play/Pause">
+                    <svg id="iosPlayIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                </button>
+                <button class="ios-btn" id="iosNext" aria-label="Próxima">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="ios-vol-row">
+                <span class="ios-vol-ic">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.5 12A4.5 4.5 0 0 0 16 7.97V16c1.48-.73 2.5-2.25 2.5-4zm-13-1v2h3l4 4V7l-4 4H5.5z" />
+                    </svg>
+                </span>
+                <input type="range" class="ios-vol-slider" min="0" max="100" value="80" aria-label="Volume">
+                <span class="ios-vol-ic">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77 0-4.28-2.99-7.86-7-8.77z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // revelar polaroid
+        const box = document.getElementById('polaroidBox');
+        box.addEventListener('click', () => {
+            box.classList.toggle('revealed');
+        });
+    </script>
+
+
+    <script src="css-script/script_music.js"></script>
+    <script src="css-script/script_coração.js"></script>
+</body>
+
+</html>
