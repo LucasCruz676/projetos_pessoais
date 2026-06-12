@@ -43,7 +43,7 @@ envelope.addEventListener('click', () => {
 
 
 // Data e hora que vocês se conheceram (ANO, MES-1, DIA, HORA, MINUTO, SEGUNDO)
-const dataQueSeConheceram = new Date(2025, 10, 10, 16, 0, 0); // 10/11/2025 às 16:00
+const dataQueSeConheceram = new Date(2026, 2, 31, 6, 39, 0); // 31/03/2026 às 06:39
 
 function atualizarTempo() {
     const agora = new Date();
@@ -66,3 +66,57 @@ function atualizarTempo() {
 // Atualiza a cada 1 segundo
 setInterval(atualizarTempo, 1000);
 atualizarTempo();
+
+// chuva de corações
+
+(function () {
+    const emojis = ["❤️", "🩷", "💕", "💗", "💖", "💝", "🌹"];
+    let chuvaAtiva = false;
+    let intervalId = null;
+    let timeoutId = null;
+
+    function criarCoracao() {
+        const heart = document.createElement("div");
+        heart.className = "chuva-heart";
+        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // posição horizontal aleatória
+        heart.style.left = (Math.random() * 100) + "vw";
+
+        // duração e tamanho aleatórios
+        const duration = (Math.random() * 2 + 2).toFixed(2);
+        const size = (Math.random() * 18 + 16).toFixed(0);
+        heart.style.animationDuration = duration + "s";
+        heart.style.fontSize = size + "px";
+
+        document.body.appendChild(heart);
+
+        // remove do DOM após cair
+        setTimeout(() => heart.remove(), parseFloat(duration) * 1000 + 100);
+    }
+
+    function iniciarChuva() {
+        if (chuvaAtiva) return;
+        chuvaAtiva = true;
+
+        // dispara muitos corações rápido no início
+        for (let i = 0; i < 18; i++) {
+            setTimeout(criarCoracao, i * 60);
+        }
+
+        // continua caindo por 4 segundos
+        intervalId = setInterval(criarCoracao, 120);
+
+        timeoutId = setTimeout(() => {
+            clearInterval(intervalId);
+            chuvaAtiva = false;
+        }, 4000);
+    }
+
+    document.getElementById("btnChuva").addEventListener("click", () => {
+        clearInterval(intervalId);
+        clearTimeout(timeoutId);
+        chuvaAtiva = false;
+        iniciarChuva();
+    });
+})();

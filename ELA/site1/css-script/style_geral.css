@@ -100,20 +100,26 @@
 
 /* estilo polaroid foto surpresa */
 
-
 .polaroid {
     width: 260px;
-    height: 310px;
+    height: 290px;
     background: white;
     border-radius: 6px;
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.22);
     padding: 10px;
     padding-bottom: 50px;
     position: relative;
-    right: -350px;
-    top: 100px;
+    right: -495px;
+    top: 70px;
     cursor: pointer;
     overflow: hidden;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transform: scale(1.3);
 }
 
 .photo-area {
@@ -155,4 +161,69 @@
     left: 0;
     color: #333;
     font-family: "Courier New", monospace;
+}
+
+/* estilo do botão chuva de corações */
+
+/* ── Botão chuva de corações ── */
+
+.btn-chuva-wrapper {
+    position: fixed;
+    bottom: 550px;
+    right: 100px;
+    z-index: 9999;
+}
+
+.btn-chuva-coracao {
+    background: rgba(255, 100, 140, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 130, 160, 0.45);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 11px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 20px rgba(255, 80, 120, 0.25);
+}
+
+.btn-chuva-coracao:hover {
+    background: rgba(255, 100, 140, 0.35);
+    transform: scale(1.06);
+    box-shadow: 0 6px 28px rgba(255, 80, 120, 0.4);
+}
+
+.btn-chuva-coracao:active {
+    transform: scale(0.95);
+}
+
+/* ── Corações da chuva ── */
+.chuva-heart {
+    position: fixed;
+    top: -60px;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 99998;
+    animation: chuvaFall linear forwards;
+    user-select: none;
+}
+
+@keyframes chuvaFall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(25deg) scale(0.7);
+        opacity: 0;
+    }
 }

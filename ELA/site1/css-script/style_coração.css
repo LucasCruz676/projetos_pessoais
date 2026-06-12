@@ -3,7 +3,9 @@
 body {
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/ELA/site1/img/background.png);
+        url(/ELA/site1/img/background_png.png);
+        background-position: left top;
+        background-size: cover;
     width: 100vw;
     height: 100vh;
     margin: 0px;
